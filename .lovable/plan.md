@@ -1,58 +1,29 @@
 
-# Healthcare Advisory Website — Matthews-Inspired Design
 
-## Design System
-- **Dark theme** throughout: deep navy/charcoal background (#0A0F1C), white text, blue accents (#2563EB)
-- **Bold, uppercase headings** (sans-serif, heavy weight) like Matthews
-- Clean, spacious layouts with generous whitespace
-- Professional photography placeholders (healthcare/building imagery)
-- Subtle hover animations and smooth transitions
-- Responsive across all breakpoints
+# Rebrand to Decker Healthcare Group
 
-## Pages & Structure
+## Changes
 
-### 1. Home Page
-- **Hero section**: Full-width dark background with bold headline ("Corporate Finance Advisory" / tagline), subtitle text, and CTA button — inspired by Matthews' particle-effect hero
-- **Services overview**: Two-column cards highlighting M&A Advisory and Capital Markets Advisory with brief descriptions and "Learn More" links
-- **Why Us section**: Key differentiators (deep industry knowledge, long-term relationships, customized solutions)
-- **Newsletter signup**: Email subscription bar at the bottom
-- **Footer**: Company info, nav links, social links
+1. **Copy logo** to `src/assets/decker-logo.png`
 
-### 2. About Page
-- **Hero banner**: "Guiding Strategic Decision Making" with dark overlay
-- **Why Us section**: Company philosophy and values text
-- **Team grid**: Team member cards with photos, names, and titles — clicking opens a detail view/modal. Includes all 7 team members from the Helios site
+2. **Navbar** — Replace "HELIOS HCA" text with the Decker logo image (sized appropriately ~h-10) as the home link
 
-### 3. Services Page
-- **Hero section**: Matthews-style split layout (text left, image right) with dark background
-- **M&A and Strategic Advisory** section with sub-services:
-  - Asset Acquisition & Divestiture Strategies
-  - Distressed Assets & Restructurings
-- **Capital Markets Advisory** section with sub-services:
-  - Debt placement, recapitalizations, etc.
-- Each service gets a card or expandable section with description
+3. **Footer** — Replace "Helios HCA" brand name with Decker logo + "Decker Healthcare Group" text; update copyright to "Decker Healthcare Group"
 
-### 4. Track Record (Tombstones) Page
-- **Hero banner** with page title
-- **Deal cards**: List of completed transactions, each showing title and summary excerpt, styled as professional "tombstone" announcements
-- Click-through to individual deal detail pages
+4. **All pages** — Find-and-replace all instances of "Helios" with "Decker Healthcare Group" or "Decker" as contextually appropriate:
+   - Index.tsx: hero subtitle, "The Helios Difference" → "The Decker Difference", newsletter section
+   - About.tsx: hero, "Why Helios" → "Why Decker", philosophy text, team member bios (replace "Helios Healthcare Advisory" with "Decker Healthcare Group")
+   - Services.tsx: no direct Helios references expected
+   - TrackRecord.tsx: deal summaries mentioning "Helios"
+   - DealDetail.tsx: deal descriptions mentioning "Helios"
+   - Careers.tsx: "Why Helios" → "Why Decker", culture text
+   - Contact.tsx: office info "Helios Healthcare Advisory" → "Decker Healthcare Group"
 
-### 5. Careers Page
-- Simple page with company culture messaging
-- Placeholder for open positions or a "Contact us to learn about opportunities" CTA
+5. **Footer email** — Update `info@helioshca.com` → `info@deckerhealthcare.com`
 
-### 6. Contact Page
-- **Hero section**: Matthews-style split layout (text + image)
-- **Contact form**: Name, email, phone, message fields
-- **Office location** with address info
-- CTA buttons for different contact purposes
+6. **Update memory** — Reflect the new company name
 
-### Navigation
-- **Sticky top navbar**: Dark background, company logo left, nav links right (About, Services, Track Record, Careers, Contact)
-- Dropdown menus where applicable (Services sub-items)
-- Mobile hamburger menu
+## Technical notes
+- Logo is dark/black on transparent — works well on dark backgrounds with a CSS `invert` + `brightness` filter, or we can leave it as-is if the dark shield icon looks good on navy. Will add `filter: brightness(0) invert(1)` to make it white on dark nav.
+- All text changes are string replacements across ~8 files
 
-### Shared Components
-- Consistent dark footer with nav links, company info, and newsletter signup
-- Page transition animations
-- Scroll-to-top behavior
