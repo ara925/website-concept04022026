@@ -43,7 +43,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     title: "Physician Practice Management Sale",
     type: "M&A Advisory",
     description: [
-      "Helios advised a physician-owned practice management company on its sale to a private equity-backed consolidator.",
+      "Decker Healthcare Group advised a physician-owned practice management company on its sale to a private equity-backed consolidator.",
       "The transaction required careful structuring to accommodate the sellers' objectives around continued clinical autonomy, earn-out mechanisms, and equity rollover participation.",
       "Helios managed a competitive process that resulted in favorable terms and a partnership structure aligned with the physicians' long-term goals.",
     ],
