@@ -35,7 +35,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     title: "Pharmacy Services Acquisition Financing",
     type: "Capital Markets",
     description: [
-      "Helios arranged acquisition financing for a pharmacy services company executing a buy-and-build growth strategy across the Southeastern United States.",
+      "Decker Healthcare Group arranged acquisition financing for a pharmacy services company executing a buy-and-build growth strategy across the Southeastern United States.",
       "The engagement included structuring a senior credit facility with an accordion feature to support future add-on acquisitions, as well as a delayed-draw term loan for identified pipeline opportunities.",
     ],
   },
