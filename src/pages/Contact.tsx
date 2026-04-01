@@ -17,7 +17,7 @@ const Contact = () => {
     <div>
       <HeroSection
         title="Contact Us"
-        subtitle="We welcome the opportunity to discuss how Helios can help you achieve your strategic objectives."
+        subtitle="We welcome the opportunity to discuss how Decker Healthcare Group can help you achieve your strategic objectives."
       />
 
       <section className="section-padding">
@@ -87,14 +87,14 @@ const Contact = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-primary mt-0.5" />
                       <div>
-                        <p className="text-sm text-foreground font-medium">Helios Healthcare Advisory</p>
+                        <p className="text-sm text-foreground font-medium">Decker Healthcare Group</p>
                         <p className="text-sm text-muted-foreground">Chicago, IL</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-primary" />
-                      <a href="mailto:info@helioshca.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        info@helioshca.com
+                      <a href="mailto:info@deckerhealthcare.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        info@deckerhealthcare.com
                       </a>
                     </div>
                     <div className="flex items-center gap-3">

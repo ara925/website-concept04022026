@@ -14,10 +14,10 @@ const Careers = () => {
       <section className="section-padding">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Culture</p>
-          <h2 className="heading-lg text-foreground mb-8">Why Helios</h2>
+          <h2 className="heading-lg text-foreground mb-8">Why Decker</h2>
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              At Helios, we foster an environment that values intellectual curiosity, collaboration, and professional growth. Our team members work directly with senior leadership on complex healthcare transactions, gaining unparalleled experience and mentorship.
+              At Decker, we foster an environment that values intellectual curiosity, collaboration, and professional growth. Our team members work directly with senior leadership on complex healthcare transactions, gaining unparalleled experience and mentorship.
             </p>
             <p>
               We believe in a culture of meritocracy where talented professionals are given significant responsibility early in their careers. Our flat organizational structure ensures that every team member has a meaningful impact on our clients' outcomes.

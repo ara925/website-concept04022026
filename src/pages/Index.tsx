@@ -62,7 +62,7 @@ const Index = () => {
       <section className="section-padding bg-card">
         <div className="max-w-7xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Why Choose Us</p>
-          <h2 className="heading-lg text-foreground mb-12">The Helios Difference</h2>
+          <h2 className="heading-lg text-foreground mb-12">The Decker Difference</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[

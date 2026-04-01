@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: "Michael Patton",
     title: "Managing Director",
-    bio: "Michael Patton founded Helios Healthcare Advisory to provide specialized investment banking services to healthcare companies. He has over 20 years of healthcare M&A and capital markets experience, having completed over $5 billion in transactions.",
+    bio: "Michael Patton founded Decker Healthcare Group to provide specialized investment banking services to healthcare companies. He has over 20 years of healthcare M&A and capital markets experience, having completed over $5 billion in transactions.",
   },
   {
     name: "Ryan O'Sullivan",
@@ -54,10 +54,10 @@ const About = () => {
       <section className="section-padding">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Our Philosophy</p>
-          <h2 className="heading-lg text-foreground mb-8">Why Helios</h2>
+          <h2 className="heading-lg text-foreground mb-8">Why Decker</h2>
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              Helios Healthcare Advisory was founded on the belief that healthcare companies deserve a dedicated advisory partner with deep industry expertise. Our team brings decades of combined experience in healthcare M&A and capital markets transactions.
+              Decker Healthcare Group was founded on the belief that healthcare companies deserve a dedicated advisory partner with deep industry expertise. Our team brings decades of combined experience in healthcare M&A and capital markets transactions.
             </p>
             <p>
               We are committed to providing our clients with unbiased, conflict-free advice. Our independence allows us to focus solely on achieving the best outcomes for our clients, whether they are exploring a sale, acquisition, recapitalization, or other strategic alternatives.
