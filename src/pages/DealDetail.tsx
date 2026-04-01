@@ -10,7 +10,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     description: [
       "Decker Healthcare Group served as exclusive financial advisor to a regional behavioral health platform in connection with its sale to a national strategic acquirer.",
       "The company operated multiple outpatient behavioral health clinics across several states, providing a comprehensive suite of mental health and substance abuse treatment services.",
-      "Helios conducted a targeted marketing process, identifying and engaging with a select group of strategic and financial buyers. The resulting transaction represented a significant premium to management's initial expectations and provided an optimal outcome for all stakeholders.",
+      "Decker Healthcare Group conducted a targeted marketing process, identifying and engaging with a select group of strategic and financial buyers. The resulting transaction represented a significant premium to management's initial expectations and provided an optimal outcome for all stakeholders.",
     ],
   },
   "2": {
