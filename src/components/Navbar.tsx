@@ -26,8 +26,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
-        <Link to="/" className="text-xl font-extrabold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
-          Helios HCA
+        <Link to="/" className="hover:opacity-80 transition-opacity">
+          <img src="/decker-logo.png" alt="Decker Healthcare Group" className="h-10 brightness-0 invert" />
         </Link>
 
         {/* Desktop Nav */}

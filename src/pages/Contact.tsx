@@ -93,8 +93,8 @@ const Contact = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-primary" />
-                      <a href="mailto:info@helioshca.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        info@helioshca.com
+                      <a href="mailto:info@deckerhealthcare.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        info@deckerhealthcare.com
                       </a>
                     </div>
                     <div className="flex items-center gap-3">

@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: "Michael Patton",
     title: "Managing Director",
-    bio: "Michael Patton founded Helios Healthcare Advisory to provide specialized investment banking services to healthcare companies. He has over 20 years of healthcare M&A and capital markets experience, having completed over $5 billion in transactions.",
+    bio: "Michael Patton founded Decker Healthcare Group to provide specialized investment banking services to healthcare companies. He has over 20 years of healthcare M&A and capital markets experience, having completed over $5 billion in transactions.",
   },
   {
     name: "Ryan O'Sullivan",

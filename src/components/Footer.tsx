@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">Contact</h4>
-            <p className="text-sm text-muted-foreground">info@helioshca.com</p>
+            <p className="text-sm text-muted-foreground">info@deckerhealthcare.com</p>
             <Link to="/contact" className="inline-block mt-4 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
               Get in Touch →
             </Link>

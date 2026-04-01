@@ -52,7 +52,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     title: "Acute Care Hospital System Restructuring",
     type: "Capital Markets",
     description: [
-      "Helios provided financial restructuring advisory to a community hospital system facing significant liquidity challenges and covenant compliance issues.",
+      "Decker Healthcare Group provided financial restructuring advisory to a community hospital system facing significant liquidity challenges and covenant compliance issues.",
       "The engagement included negotiating covenant relief and amendments with the existing lender group, sourcing new capital to bridge near-term liquidity needs, and developing a long-term operational and financial turnaround plan.",
       "The result was a successful out-of-court recapitalization that preserved the hospital system's operations and community healthcare access.",
     ],
