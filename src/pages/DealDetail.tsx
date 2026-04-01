@@ -17,7 +17,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     title: "Post-Acute Care Portfolio Divestiture",
     type: "M&A Advisory",
     description: [
-      "Helios represented a private equity-backed post-acute care company in the divestiture of a portfolio of skilled nursing facilities across three states.",
+      "Decker Healthcare Group represented a private equity-backed post-acute care company in the divestiture of a portfolio of skilled nursing facilities across three states.",
       "The engagement required careful positioning of assets with varying quality metrics and census levels, as well as navigation of complex regulatory transfer requirements in multiple jurisdictions.",
       "Helios successfully structured and executed a transaction that maximized aggregate value while accommodating the buyer's preferred deal structure.",
     ],
