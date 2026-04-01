@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-lg font-extrabold uppercase tracking-widest text-foreground mb-4">Helios HCA</h3>
+            <img src="/decker-logo.png" alt="Decker Healthcare Group" className="h-10 brightness-0 invert mb-4" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Corporate finance advisory firm specializing in healthcare mergers, acquisitions, and capital markets transactions.
             </p>
