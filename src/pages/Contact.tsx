@@ -87,7 +87,7 @@ const Contact = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-primary mt-0.5" />
                       <div>
-                        <p className="text-sm text-foreground font-medium">Helios Healthcare Advisory</p>
+                        <p className="text-sm text-foreground font-medium">Decker Healthcare Group</p>
                         <p className="text-sm text-muted-foreground">Chicago, IL</p>
                       </div>
                     </div>
