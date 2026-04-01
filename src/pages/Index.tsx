@@ -1,90 +1,166 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, Shield, Users } from "lucide-react";
+import { ArrowRight, TrendingUp, Shield, Users, Building2, Briefcase, BarChart3 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
+const stats = [
+  { label: "Transactions Completed", value: "$5B+" },
+  { label: "Years of Experience", value: "20+" },
+  { label: "Healthcare Sectors", value: "10+" },
+  { label: "Team Members", value: "7" },
+];
 
 const Index = () => {
+  const scrollRef = useScrollAnimation();
+
   return (
-    <div>
+    <div ref={scrollRef}>
       {/* Hero */}
       <HeroSection
-        title="Corporate Finance Advisory"
-        subtitle="Specialized healthcare investment banking providing M&A advisory and capital markets solutions to healthcare companies nationwide."
+        title="Healthcare Advisory. Redefined."
+        subtitle="Specialized corporate finance advisory providing M&A and capital markets solutions to healthcare companies nationwide."
         size="large"
+        showParticles
       >
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="text-sm font-semibold uppercase tracking-wider">
-            <Link to="/services">Our Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <Button
+            asChild
+            size="lg"
+            className="text-sm font-semibold uppercase tracking-wider px-8 h-12 rounded-none"
+          >
+            <Link to="/services">
+              Our Services <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="text-sm font-semibold uppercase tracking-wider">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="text-sm font-semibold uppercase tracking-wider px-8 h-12 rounded-none border-foreground/20 hover:bg-foreground/5"
+          >
             <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>
       </HeroSection>
 
-      {/* Services Overview */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">What We Do</p>
-          <h2 className="heading-lg text-foreground mb-12">Our Services</h2>
+      {/* Stats Bar */}
+      <section className="stats-bar">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-3xl md:text-4xl font-black text-primary mb-1">{stat.value}</p>
+                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Link to="/services#ma-advisory" className="group">
-              <div className="bg-card border border-border rounded-lg p-8 md:p-10 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--card-hover-shadow)]">
-                <TrendingUp className="h-10 w-10 text-primary mb-6" />
-                <h3 className="heading-md text-foreground mb-4">M&A Advisory</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+      {/* Services Overview - Matthews split layout style */}
+      <section className="section-padding">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="animate-on-scroll mb-16">
+            <div className="accent-line mb-6" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">What We Do</p>
+            <h2 className="heading-lg text-foreground">Our Services</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 stagger-children">
+            {/* M&A Card */}
+            <Link to="/services#ma-advisory" className="group animate-on-scroll">
+              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">M&A Advisory</span>
+                </div>
+                <h3 className="heading-md text-foreground mb-5 group-hover:text-primary transition-colors">
+                  Mergers & Acquisitions
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-8">
                   Strategic advisory for mergers, acquisitions, divestitures, and restructurings across the healthcare continuum. We guide clients through every phase of the transaction lifecycle.
                 </p>
-                <span className="text-primary font-semibold text-sm uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-flex items-center gap-2">
+                <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
                 </span>
+
+                {/* Decorative corner line */}
+                <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/30 transition-colors duration-500" />
               </div>
             </Link>
 
-            <Link to="/services#capital-markets" className="group">
-              <div className="bg-card border border-border rounded-lg p-8 md:p-10 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--card-hover-shadow)]">
-                <Shield className="h-10 w-10 text-primary mb-6" />
-                <h3 className="heading-md text-foreground mb-4">Capital Markets Advisory</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+            {/* Capital Markets Card */}
+            <Link to="/services#capital-markets" className="group animate-on-scroll">
+              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <BarChart3 className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Capital Markets</span>
+                </div>
+                <h3 className="heading-md text-foreground mb-5 group-hover:text-primary transition-colors">
+                  Capital Markets Advisory
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-8">
                   Comprehensive capital raising solutions including debt placement, recapitalizations, and financial restructuring for healthcare organizations of all sizes.
                 </p>
-                <span className="text-primary font-semibold text-sm uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-flex items-center gap-2">
+                <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
                 </span>
+
+                <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/30 transition-colors duration-500" />
               </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Us */}
-      <section className="section-padding bg-card">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Why Choose Us</p>
-          <h2 className="heading-lg text-foreground mb-12">The Decker Difference</h2>
+      {/* Why Us - with large visual blocks like Matthews */}
+      <section className="section-padding bg-card relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/[0.03] to-transparent" />
+        
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          <div className="animate-on-scroll mb-16">
+            <div className="accent-line mb-6" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Why Choose Us</p>
+            <h2 className="heading-lg text-foreground">The Decker Difference</h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 stagger-children">
             {[
               {
                 icon: Users,
                 title: "Deep Industry Knowledge",
-                description: "Our team brings decades of combined experience across the full spectrum of healthcare sectors, from acute care to post-acute, behavioral health to pharmacy services.",
+                description:
+                  "Decades of combined experience across the full spectrum of healthcare sectors, from acute care to post-acute, behavioral health to pharmacy services.",
               },
               {
                 icon: Shield,
                 title: "Long-Term Relationships",
-                description: "We build lasting partnerships with our clients, acting as trusted advisors who understand their unique challenges and strategic objectives.",
+                description:
+                  "Lasting partnerships with our clients, acting as trusted advisors who understand their unique challenges and strategic objectives.",
               },
               {
-                icon: TrendingUp,
+                icon: Briefcase,
                 title: "Customized Solutions",
-                description: "Every engagement is tailored to the specific needs and goals of our clients. We don't believe in one-size-fits-all approaches to complex transactions.",
+                description:
+                  "Every engagement is tailored to the specific needs and goals of our clients. No one-size-fits-all approaches to complex transactions.",
               },
             ].map((item) => (
-              <div key={item.title} className="text-center md:text-left">
-                <item.icon className="h-8 w-8 text-primary mb-4 mx-auto md:mx-0" />
-                <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
+              <div
+                key={item.title}
+                className="animate-on-scroll border border-border/30 p-10 md:p-12 group hover:bg-secondary/20 transition-all duration-500"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-4 uppercase tracking-wide">
+                  {item.title}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
               </div>
             ))}
@@ -92,21 +168,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="section-padding">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="heading-md text-foreground mb-4">Stay Informed</h2>
-          <p className="text-muted-foreground mb-8">Subscribe to receive industry insights and transaction updates.</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 h-11 px-4 rounded-md bg-card border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Button type="submit" className="text-sm font-semibold uppercase tracking-wider">
-              Subscribe
+      {/* CTA Section */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} />
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }} />
+        
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          <div className="animate-on-scroll max-w-2xl">
+            <div className="accent-line mb-6" />
+            <h2 className="heading-lg text-foreground mb-6">Ready to Explore Your Strategic Options?</h2>
+            <p className="text-muted-foreground leading-relaxed mb-10 text-lg">
+              Whether you're considering a sale, acquisition, recapitalization, or other strategic alternative, our team is ready to help you navigate the process.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="text-sm font-semibold uppercase tracking-wider px-10 h-12 rounded-none"
+            >
+              <Link to="/contact">
+                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
-          </form>
+          </div>
         </div>
       </section>
     </div>

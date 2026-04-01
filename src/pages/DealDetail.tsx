@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const dealDetails: Record<string, { title: string; type: string; description: string[] }> = {
   "1": {
@@ -62,13 +63,14 @@ const dealDetails: Record<string, { title: string; type: string; description: st
 const DealDetail = () => {
   const { id } = useParams();
   const deal = id ? dealDetails[id] : null;
+  const scrollRef = useScrollAnimation();
 
   if (!deal) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center">
           <h2 className="heading-md text-foreground mb-4">Deal Not Found</h2>
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="rounded-none">
             <Link to="/track-record">Back to Track Record</Link>
           </Button>
         </div>
@@ -77,28 +79,38 @@ const DealDetail = () => {
   }
 
   return (
-    <div>
+    <div ref={scrollRef}>
       <HeroSection title={deal.title} subtitle={deal.type} />
 
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
           <Link
             to="/track-record"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+            className="animate-on-scroll inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10 group"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to Track Record
+            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Track Record
           </Link>
 
-          <div className="space-y-6">
+          <div className="animate-on-scroll">
+            <div className="accent-line mb-8" />
+          </div>
+
+          <div className="space-y-6 stagger-children">
             {deal.description.map((paragraph, i) => (
-              <p key={i} className="text-muted-foreground leading-relaxed">{paragraph}</p>
+              <p key={i} className="animate-on-scroll text-muted-foreground leading-relaxed text-lg">
+                {paragraph}
+              </p>
             ))}
           </div>
 
-          <div className="mt-12 pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground mb-4">Interested in learning more about our capabilities?</p>
-            <Button asChild className="text-sm font-semibold uppercase tracking-wider">
-              <Link to="/contact">Contact Us</Link>
+          <div className="animate-on-scroll mt-16 pt-10 border-t border-border/30">
+            <p className="text-sm text-muted-foreground mb-5">
+              Interested in learning more about our capabilities?
+            </p>
+            <Button asChild className="text-sm font-semibold uppercase tracking-wider rounded-none px-8 h-12">
+              <Link to="/contact">
+                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

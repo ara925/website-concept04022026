@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const teamMembers = [
   {
@@ -42,9 +43,10 @@ const teamMembers = [
 
 const About = () => {
   const [selectedMember, setSelectedMember] = useState<typeof teamMembers[0] | null>(null);
+  const scrollRef = useScrollAnimation();
 
   return (
-    <div>
+    <div ref={scrollRef}>
       <HeroSection
         title="Guiding Strategic Decision Making"
         subtitle="A dedicated healthcare advisory team with deep sector expertise and a commitment to delivering exceptional results for our clients."
@@ -52,43 +54,51 @@ const About = () => {
 
       {/* Why Us */}
       <section className="section-padding">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Our Philosophy</p>
-          <h2 className="heading-lg text-foreground mb-8">Why Decker</h2>
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
-            <p>
-              Decker Healthcare Group was founded on the belief that healthcare companies deserve a dedicated advisory partner with deep industry expertise. Our team brings decades of combined experience in healthcare M&A and capital markets transactions.
-            </p>
-            <p>
-              We are committed to providing our clients with unbiased, conflict-free advice. Our independence allows us to focus solely on achieving the best outcomes for our clients, whether they are exploring a sale, acquisition, recapitalization, or other strategic alternatives.
-            </p>
-            <p>
-              Our approach is relationship-driven. We invest the time to understand each client's business, culture, and strategic objectives before recommending a course of action. This deep understanding enables us to identify the most suitable counterparties and structure transactions that maximize value.
-            </p>
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div className="animate-on-scroll">
+              <div className="accent-line mb-6" />
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Our Philosophy</p>
+              <h2 className="heading-lg text-foreground mb-8">Why Decker</h2>
+            </div>
+            <div className="animate-on-scroll space-y-6 text-muted-foreground leading-relaxed">
+              <p>
+                Decker Healthcare Group was founded on the belief that healthcare companies deserve a dedicated advisory partner with deep industry expertise. Our team brings decades of combined experience in healthcare M&A and capital markets transactions.
+              </p>
+              <p>
+                We are committed to providing our clients with unbiased, conflict-free advice. Our independence allows us to focus solely on achieving the best outcomes for our clients, whether they are exploring a sale, acquisition, recapitalization, or other strategic alternatives.
+              </p>
+              <p>
+                Our approach is relationship-driven. We invest the time to understand each client's business, culture, and strategic objectives before recommending a course of action.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Team */}
       <section className="section-padding bg-card">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Leadership</p>
-          <h2 className="heading-lg text-foreground mb-12">Our Team</h2>
+        <div className="max-w-[1400px] mx-auto">
+          <div className="animate-on-scroll mb-16">
+            <div className="accent-line mb-6" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Leadership</p>
+            <h2 className="heading-lg text-foreground">Our Team</h2>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 stagger-children">
             {teamMembers.map((member) => (
               <button
                 key={member.name}
                 onClick={() => setSelectedMember(member)}
-                className="text-left bg-background border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-[var(--card-hover-shadow)] transition-all duration-300 group"
+                className="animate-on-scroll text-left bg-background border border-border/30 p-8 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] transition-all duration-500 group"
               >
-                <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <span className="text-2xl font-bold text-primary">
-                    {member.name.split(" ").map(n => n[0]).join("")}
+                <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors duration-500">
+                  <span className="text-2xl font-black text-primary">
+                    {member.name.split(" ").map((n) => n[0]).join("")}
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-sm text-muted-foreground">{member.title}</p>
+                <p className="text-sm text-primary/80">{member.title}</p>
               </button>
             ))}
           </div>
@@ -97,22 +107,26 @@ const About = () => {
 
       {/* Team Member Modal */}
       {selectedMember && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={() => setSelectedMember(null)} />
-          <div className="relative bg-card border border-border rounded-lg max-w-lg w-full p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div
+            className="absolute inset-0 bg-background/90 backdrop-blur-sm"
+            onClick={() => setSelectedMember(null)}
+          />
+          <div className="relative bg-card border border-border/30 max-w-lg w-full p-10 animate-scale-in shadow-2xl shadow-primary/10">
             <button
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+              className="absolute top-5 right-5 text-muted-foreground hover:text-foreground transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mb-4">
-              <span className="text-xl font-bold text-primary">
-                {selectedMember.name.split(" ").map(n => n[0]).join("")}
+            <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mb-5">
+              <span className="text-xl font-black text-primary">
+                {selectedMember.name.split(" ").map((n) => n[0]).join("")}
               </span>
             </div>
+            <div className="accent-line mb-4" />
             <h3 className="text-xl font-bold text-foreground mb-1">{selectedMember.name}</h3>
-            <p className="text-sm text-primary font-semibold mb-4">{selectedMember.title}</p>
+            <p className="text-sm text-primary font-semibold mb-5">{selectedMember.title}</p>
             <p className="text-muted-foreground leading-relaxed">{selectedMember.bio}</p>
           </div>
         </div>
