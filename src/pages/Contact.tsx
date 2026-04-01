@@ -17,7 +17,7 @@ const Contact = () => {
     <div>
       <HeroSection
         title="Contact Us"
-        subtitle="We welcome the opportunity to discuss how Helios can help you achieve your strategic objectives."
+        subtitle="We welcome the opportunity to discuss how Decker Healthcare Group can help you achieve your strategic objectives."
       />
 
       <section className="section-padding">
