@@ -26,7 +26,7 @@ const dealDetails: Record<string, { title: string; type: string; description: st
     title: "Home Health & Hospice Recapitalization",
     type: "Capital Markets",
     description: [
-      "Helios structured and placed a comprehensive recapitalization for a leading home health and hospice provider, enabling a management buyout and growth capital infusion.",
+      "Decker Healthcare Group structured and placed a comprehensive recapitalization for a leading home health and hospice provider, enabling a management buyout and growth capital infusion.",
       "The capital structure included senior secured credit facilities and a mezzanine tranche, sourced from a combination of regional banks and specialty healthcare lenders.",
       "The transaction provided the management team with majority ownership while positioning the company for continued organic and acquisitive growth.",
     ],
