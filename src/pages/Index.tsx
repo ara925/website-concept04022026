@@ -185,11 +185,8 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} />
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }} />
+        <img src={sectionMedical} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/80" />
         
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="animate-on-scroll max-w-2xl">

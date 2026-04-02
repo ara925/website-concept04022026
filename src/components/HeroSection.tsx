@@ -9,6 +9,7 @@ interface HeroSectionProps {
   size?: "default" | "large";
   align?: "center" | "left";
   showParticles?: boolean;
+  backgroundImage?: string;
 }
 
 const HeroSection = ({
@@ -19,6 +20,7 @@ const HeroSection = ({
   size = "default",
   align = "left",
   showParticles = false,
+  backgroundImage,
 }: HeroSectionProps) => {
   return (
     <section
@@ -27,12 +29,27 @@ const HeroSection = ({
         size === "large" ? "min-h-[90vh]" : "min-h-[55vh]",
         className
       )}
-      style={{ background: "var(--hero-gradient)" }}
+      style={{ background: backgroundImage ? undefined : "var(--hero-gradient)" }}
     >
+      {/* Background image */}
+      {backgroundImage && (
+        <div className="absolute inset-0">
+          <img
+            src={backgroundImage}
+            alt=""
+            className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(var(--background)) 0%, transparent 50%, hsl(var(--background)/0.8) 100%)" }} />
+        </div>
+      )}
+
       {/* Particle effect or subtle grid */}
       {showParticles ? (
         <ParticleField />
-      ) : (
+      ) : !backgroundImage ? (
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -41,10 +58,10 @@ const HeroSection = ({
             backgroundSize: "80px 80px",
           }}
         />
-      )}
+      ) : null}
 
       {/* Gradient overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
       <div
         className={cn(
