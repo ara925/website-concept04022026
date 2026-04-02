@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroCareers from "@/assets/hero-careers.jpg";
 
 const Careers = () => {
   const scrollRef = useScrollAnimation();
