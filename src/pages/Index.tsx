@@ -122,6 +122,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Image Break Section */}
+      <section className="relative h-[40vh] overflow-hidden">
+        <img src={sectionHealthcare} alt="Healthcare professionals" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground text-center px-6">
+            Dedicated to Healthcare. Driven by Results.
+          </p>
+        </div>
+      </section>
+
       {/* Why Us - with large visual blocks like Matthews */}
       <section className="section-padding bg-card relative overflow-hidden">
         {/* Background decoration */}
