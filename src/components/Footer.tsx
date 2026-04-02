@@ -14,8 +14,8 @@ const Footer = () => {
             <img
               src={deckerLogo}
               alt="Decker Healthcare Group"
-              className="h-8 w-auto brightness-0 invert mb-6"
-              style={{ minWidth: '160px' }}
+              className="h-10 w-auto invert mb-6"
+              style={{ minWidth: '180px' }}
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Corporate finance advisory firm specializing in healthcare mergers,
