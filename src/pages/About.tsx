@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const teamMembers = [
   {
