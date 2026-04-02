@@ -25,6 +25,7 @@ const Index = () => {
         subtitle="Specialized corporate finance advisory providing M&A and capital markets solutions to healthcare companies nationwide."
         size="large"
         showParticles
+        backgroundImage={heroHome}
       >
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <Button
