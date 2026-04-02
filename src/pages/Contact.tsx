@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
