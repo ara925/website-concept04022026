@@ -45,7 +45,7 @@ const Navbar = () => {
           <img
             src={deckerLogo}
             alt="Decker Healthcare Group"
-            className="h-10 w-auto invert"
+            className="h-10 w-auto brightness-0 invert"
             style={{ minWidth: '180px' }}
           />
         </Link>
