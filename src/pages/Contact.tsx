@@ -20,6 +20,7 @@ const Contact = () => {
       <HeroSection
         title="Contact Us"
         subtitle="We welcome the opportunity to discuss how Decker Healthcare Group can help you achieve your strategic objectives."
+        backgroundImage={heroContact}
       />
 
       <section className="section-padding">

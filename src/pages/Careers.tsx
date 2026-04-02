@@ -13,6 +13,7 @@ const Careers = () => {
       <HeroSection
         title="Careers"
         subtitle="Join a team of dedicated professionals committed to excellence in healthcare advisory."
+        backgroundImage={heroCareers}
       />
 
       <section className="section-padding">

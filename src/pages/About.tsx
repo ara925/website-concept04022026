@@ -51,6 +51,7 @@ const About = () => {
       <HeroSection
         title="Guiding Strategic Decision Making"
         subtitle="A dedicated healthcare advisory team with deep sector expertise and a commitment to delivering exceptional results for our clients."
+        backgroundImage={heroAbout}
       />
 
       {/* Why Us */}

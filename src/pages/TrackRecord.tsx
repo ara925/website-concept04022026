@@ -57,6 +57,7 @@ const TrackRecord = () => {
       <HeroSection
         title="Track Record"
         subtitle="A proven history of successful transactions across the healthcare spectrum. Select engagements are highlighted below."
+        backgroundImage={heroTrackRecord}
       />
 
       <section className="section-padding">
