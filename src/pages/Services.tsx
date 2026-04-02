@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroServices from "@/assets/hero-services.jpg";
 
 const services = [
   {
