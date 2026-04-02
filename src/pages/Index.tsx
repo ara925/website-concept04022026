@@ -3,6 +3,9 @@ import { ArrowRight, TrendingUp, Shield, Users, Building2, Briefcase, BarChart3 
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroHome from "@/assets/hero-home.jpg";
+import sectionHealthcare from "@/assets/section-healthcare.jpg";
+import sectionMedical from "@/assets/section-medical.jpg";
 
 const stats = [
   { label: "Transactions Completed", value: "$5B+" },
