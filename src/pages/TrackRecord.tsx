@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroTrackRecord from "@/assets/hero-track-record.jpg";
 
 const deals = [
   {
@@ -56,6 +57,7 @@ const TrackRecord = () => {
       <HeroSection
         title="Track Record"
         subtitle="A proven history of successful transactions across the healthcare spectrum. Select engagements are highlighted below."
+        backgroundImage={heroTrackRecord}
       />
 
       <section className="section-padding">

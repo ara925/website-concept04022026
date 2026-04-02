@@ -3,6 +3,9 @@ import { ArrowRight, TrendingUp, Shield, Users, Building2, Briefcase, BarChart3 
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroHome from "@/assets/hero-home.jpg";
+import sectionHealthcare from "@/assets/section-healthcare.jpg";
+import sectionMedical from "@/assets/section-medical.jpg";
 
 const stats = [
   { label: "Transactions Completed", value: "$5B+" },
@@ -22,6 +25,7 @@ const Index = () => {
         subtitle="Specialized corporate finance advisory providing M&A and capital markets solutions to healthcare companies nationwide."
         size="large"
         showParticles
+        backgroundImage={heroHome}
       >
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <Button
@@ -118,6 +122,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Image Break Section */}
+      <section className="relative h-[40vh] overflow-hidden">
+        <img src={sectionHealthcare} alt="Healthcare professionals" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground text-center px-6">
+            Dedicated to Healthcare. Driven by Results.
+          </p>
+        </div>
+      </section>
+
       {/* Why Us - with large visual blocks like Matthews */}
       <section className="section-padding bg-card relative overflow-hidden">
         {/* Background decoration */}
@@ -170,11 +185,8 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} />
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }} />
+        <img src={sectionMedical} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/80" />
         
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="animate-on-scroll max-w-2xl">

@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroServices from "@/assets/hero-services.jpg";
 
 const services = [
   {
@@ -70,6 +71,7 @@ const Services = () => {
       <HeroSection
         title="Our Services"
         subtitle="Delivering specialized healthcare investment banking services with deep sector expertise and a commitment to client success."
+        backgroundImage={heroServices}
       />
 
       {services.map((service, index) => (

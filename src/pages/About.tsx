@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const teamMembers = [
   {
@@ -50,6 +51,7 @@ const About = () => {
       <HeroSection
         title="Guiding Strategic Decision Making"
         subtitle="A dedicated healthcare advisory team with deep sector expertise and a commitment to delivering exceptional results for our clients."
+        backgroundImage={heroAbout}
       />
 
       {/* Why Us */}
