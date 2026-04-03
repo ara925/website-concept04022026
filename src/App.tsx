@@ -7,10 +7,10 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import TrackRecord from "./pages/TrackRecord";
-import DealDetail from "./pages/DealDetail";
+import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import BuyerIntake from "./pages/BuyerIntake";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,8 +26,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/track-record" element={<TrackRecord />} />
-            <Route path="/track-record/:id" element={<DealDetail />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/buyer-intake" element={<BuyerIntake />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
