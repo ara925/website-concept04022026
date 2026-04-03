@@ -14,7 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      buyer_submissions: {
+        Row: {
+          additional_notes: string | null
+          company_name: string
+          contact_name: string
+          created_at: string
+          deal_size: string
+          email: string
+          facility_types: string[]
+          geographies: string
+          id: string
+          phone: string | null
+        }
+        Insert: {
+          additional_notes?: string | null
+          company_name: string
+          contact_name: string
+          created_at?: string
+          deal_size: string
+          email: string
+          facility_types?: string[]
+          geographies: string
+          id?: string
+          phone?: string | null
+        }
+        Update: {
+          additional_notes?: string | null
+          company_name?: string
+          contact_name?: string
+          created_at?: string
+          deal_size?: string
+          email?: string
+          facility_types?: string[]
+          geographies?: string
+          id?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
