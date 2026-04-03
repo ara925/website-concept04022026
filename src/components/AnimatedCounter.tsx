@@ -1,0 +1,25 @@
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
+
+interface AnimatedCounterProps {
+  end: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+  duration?: number;
+}
+
+const AnimatedCounter = ({ end, prefix = "", suffix = "", decimals = 0, label, duration = 2000 }: AnimatedCounterProps) => {
+  const { ref, display } = useCounterAnimation(end, duration, prefix, suffix, decimals);
+
+  return (
+    <div ref={ref} className="text-center">
+      <p className="text-4xl md:text-5xl lg:text-6xl font-black text-primary mb-2 tabular-nums">
+        {display}
+      </p>
+      <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{label}</p>
+    </div>
+  );
+};
+
+export default AnimatedCounter;

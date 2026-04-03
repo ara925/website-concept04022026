@@ -1,34 +1,36 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroServices from "@/assets/hero-services.jpg";
+import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
+import facilitySkilledNursing from "@/assets/facility-skilled-nursing.jpg";
 
 const services = [
   {
-    id: "ma-advisory",
-    label: "M&A Advisory",
-    title: "Mergers & Acquisitions Advisory",
+    id: "seniors-housing",
+    label: "Seniors Housing Brokerage",
+    title: "Seniors Housing Brokerage",
     description:
-      "We provide comprehensive M&A advisory services to healthcare companies across the full transaction lifecycle — from strategic assessment and buyer/seller identification to negotiation support and closing.",
+      "We provide specialized brokerage services for seniors housing communities — a uniquely complex asset class where every transaction involves both real estate and an operating business. Unlike conventional commercial real estate, these deals require navigating licensing requirements, regulatory approvals, operational transitions, and the continuity of care for residents. Our team brings the deep sector expertise needed to manage this complexity and maximize value for our clients.",
     items: [
       {
-        title: "Asset Acquisition & Divestiture Strategies",
+        title: "Assisted Living & Memory Care",
         description:
-          "Strategic guidance on acquiring or divesting healthcare assets to optimize portfolio composition and maximize shareholder value.",
+          "Full-service brokerage for assisted living and memory care communities, including valuation, marketing, buyer outreach, and closing support. We understand the licensing and operational nuances unique to these properties.",
       },
       {
-        title: "Distressed Assets & Restructurings",
+        title: "Skilled Nursing Facilities",
         description:
-          "Specialized advisory for healthcare organizations navigating financial distress, including out-of-court restructurings and Section 363 asset sales.",
+          "Specialized representation for skilled nursing facility transactions, navigating Medicaid/Medicare reimbursement considerations, certificate of need requirements, and state licensing transfers.",
       },
       {
-        title: "Management Buyouts",
+        title: "Portfolio & Platform Transactions",
         description:
-          "Advisory and capital sourcing support for management teams seeking to acquire the businesses they operate.",
+          "Advisory for multi-property portfolio sales and platform-level transactions, structuring deals that optimize value across diverse seniors housing assets.",
       },
       {
-        title: "Strategic Alternatives Assessment",
+        title: "Distressed & Turnaround Assets",
         description:
-          "Comprehensive evaluation of available options including sale, recapitalization, joint venture, or continued organic growth.",
+          "Specialized advisory for underperforming or distressed seniors housing communities, including receivership sales, operational repositioning guidance, and buyer matching for turnaround opportunities.",
       },
     ],
   },
@@ -37,27 +39,27 @@ const services = [
     label: "Capital Markets Advisory",
     title: "Capital Markets Advisory",
     description:
-      "We assist healthcare companies in accessing the capital markets to fund growth, acquisitions, recapitalizations, and other strategic initiatives. Our deep relationships with lenders and investors enable us to secure optimal terms.",
+      "We assist seniors housing owners and operators in accessing the capital markets to fund acquisitions, recapitalizations, refinancings, and growth initiatives. Our deep relationships with lenders and investors who specialize in healthcare real estate enable us to secure optimal terms.",
     items: [
       {
         title: "Debt Placement",
         description:
-          "Sourcing and structuring senior, mezzanine, and subordinated debt facilities from banks, credit funds, and other institutional lenders.",
+          "Sourcing and structuring senior, mezzanine, and bridge financing from banks, credit funds, HUD/FHA, and other institutional lenders with seniors housing expertise.",
       },
       {
         title: "Recapitalizations",
         description:
-          "Restructuring balance sheets to optimize capital structure, reduce cost of capital, and enhance financial flexibility.",
+          "Restructuring balance sheets to optimize capital structure, reduce cost of capital, and enhance financial flexibility for operators and investors.",
       },
       {
-        title: "Equity Capital Raises",
+        title: "Acquisition Financing",
         description:
-          "Facilitating equity investments from private equity firms, family offices, and other institutional investors.",
+          "Arranging acquisition financing for buyers executing single-asset or portfolio acquisitions, including rapid-close solutions for competitive deal processes.",
       },
       {
         title: "Financial Restructuring",
         description:
-          "Advising on comprehensive financial restructuring strategies for healthcare organizations facing liquidity or covenant challenges.",
+          "Advising on comprehensive financial restructuring strategies for seniors housing organizations facing liquidity, covenant, or operational challenges.",
       },
     ],
   },
@@ -70,7 +72,7 @@ const Services = () => {
     <div ref={scrollRef}>
       <HeroSection
         title="Our Services"
-        subtitle="Delivering specialized healthcare investment banking services with deep sector expertise and a commitment to client success."
+        subtitle="Delivering specialized seniors housing brokerage and capital markets advisory with deep sector expertise and a commitment to client success."
         backgroundImage={heroServices}
       />
 
@@ -113,6 +115,17 @@ const Services = () => {
           </div>
         </section>
       ))}
+
+      {/* Facility images section */}
+      <section className="relative h-[40vh] overflow-hidden">
+        <img src={facilityAssistedLiving} alt="Assisted living community" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground text-center px-6">
+            Navigating the Complexities of Seniors Housing Transactions
+          </p>
+        </div>
+      </section>
     </div>
   );
 };
