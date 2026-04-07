@@ -2,64 +2,58 @@ import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroServices from "@/assets/hero-services.jpg";
 import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
-import facilitySkilledNursing from "@/assets/facility-skilled-nursing.jpg";
 
 const services = [
   {
     id: "seniors-housing",
-    label: "Seniors Housing Brokerage",
+    label: "Brokerage",
     title: "Seniors Housing Brokerage",
     description:
-      "We provide specialized brokerage services for seniors housing communities — a uniquely complex asset class where every transaction involves both real estate and an operating business. Unlike conventional commercial real estate, these deals require navigating licensing requirements, regulatory approvals, operational transitions, and the continuity of care for residents. Our team brings the deep sector expertise needed to manage this complexity and maximize value for our clients.",
+      "Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building with people living in it who need help getting out of bed in the morning. That changes everything.\n\nWe are selling a living, breathing business that cares for the most vulnerable population in this country. These transactions require state regulatory approval, operational continuity, and a buyer who understands what they're taking on. The goal is a seamless transition where residents, families, and employees never feel a disruption, all while maximizing value for our client.",
     items: [
       {
         title: "Assisted Living & Memory Care",
         description:
-          "Full-service brokerage for assisted living and memory care communities, including valuation, marketing, buyer outreach, and closing support. We understand the licensing and operational nuances unique to these properties.",
+          "Execution-focused brokerage for assisted living and memory care communities, centered on accurate valuation and real buyer feedback from the market. We position assets based on current operating realities, navigate licensing dynamics, and drive competitive processes that translate into maximizing value.",
       },
       {
         title: "Skilled Nursing Facilities",
         description:
-          "Specialized representation for skilled nursing facility transactions, navigating Medicaid/Medicare reimbursement considerations, certificate of need requirements, and state licensing transfers.",
+          "Targeted representation for skilled nursing transactions, with a focus on reimbursement durability, survey history, and operator capability. We guide buyers and sellers through the complexities of Medicaid/Medicare exposure, regulatory approvals, and change-of-ownership processes that directly impact value and timing.",
       },
       {
-        title: "Portfolio & Platform Transactions",
+        title: "Non-Profit & Hospital-Owned Assets",
         description:
-          "Advisory for multi-property portfolio sales and platform-level transactions, structuring deals that optimize value across diverse seniors housing assets.",
+          "Advisory for non-profit systems and hospital-owned senior housing assets, where transactions require alignment beyond price alone. We understand board governance, community obligations, and the need to preserve continuity of care, while structuring processes that satisfy fiduciary responsibilities and achieve executable outcomes.",
       },
       {
         title: "Distressed & Turnaround Assets",
         description:
-          "Specialized advisory for underperforming or distressed seniors housing communities, including receivership sales, operational repositioning guidance, and buyer matching for turnaround opportunities.",
+          "Hands-on advisory for underperforming or distressed communities, where value is driven by execution, not optics. We work alongside lenders, owners, and operators to create realistic sale pathways, including short sales, note resolutions, and repositioning strategies, while connecting with buyers capable of stabilizing operations.",
       },
     ],
   },
   {
     id: "capital-markets",
-    label: "Capital Markets Advisory",
+    label: "Capital Markets",
     title: "Capital Markets Advisory",
     description:
-      "We assist seniors housing owners and operators in accessing the capital markets to fund acquisitions, recapitalizations, refinancings, and growth initiatives. Our deep relationships with lenders and investors who specialize in healthcare real estate enable us to secure optimal terms.",
+      "Debt placement, recapitalizations, and acquisition financing for seniors housing owners and operators. We have a deep network of banks, credit funds, private debt lenders, and family office funds that lend in the Seniors Housing asset class.",
     items: [
-      {
-        title: "Debt Placement",
-        description:
-          "Sourcing and structuring senior, mezzanine, and bridge financing from banks, credit funds, HUD/FHA, and other institutional lenders with seniors housing expertise.",
-      },
       {
         title: "Recapitalizations",
         description:
-          "Restructuring balance sheets to optimize capital structure, reduce cost of capital, and enhance financial flexibility for operators and investors.",
+          "Advisory on refinancing existing debt to better align with current operations and market conditions. We work with owners and operators to evaluate alternatives, negotiate with existing lenders, and create solutions that provide the best possible terms in the market.",
       },
       {
         title: "Acquisition Financing",
         description:
-          "Arranging acquisition financing for buyers executing single-asset or portfolio acquisitions, including rapid-close solutions for competitive deal processes.",
+          "Strategic guidance for buyers securing financing in competitive acquisition environments. We help align capital sources with business plans, navigate lender expectations, and position transactions to close with certainty and speed.",
       },
       {
         title: "Financial Restructuring",
         description:
-          "Advising on comprehensive financial restructuring strategies for seniors housing organizations facing liquidity, covenant, or operational challenges.",
+          "Hands-on advisory for organizations facing liquidity constraints, covenant pressure, or operational underperformance. We work through complex capital situations, coordinating with lenders and stakeholders to stabilize assets and preserve value.",
       },
     ],
   },
@@ -90,7 +84,11 @@ const Services = () => {
                   {service.label}
                 </p>
                 <h2 className="heading-lg text-foreground mb-6">{service.title}</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">{service.description}</p>
+                <div className="text-muted-foreground leading-relaxed text-lg space-y-4">
+                  {service.description.split("\n\n").map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-0 stagger-children">

@@ -16,8 +16,7 @@ const Footer = () => {
               style={{ minWidth: '180px' }}
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Specialized seniors housing brokerage and capital markets advisory
-              for assisted living, skilled nursing, and healthcare real estate.
+              Seniors housing brokerage and capital markets advisory. Assisted living, skilled nursing, memory care, and independent living communities. Nationwide.
             </p>
           </div>
 
@@ -80,7 +79,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} Decker Healthcare Group. All rights reserved.
+            © 2026 Decker Healthcare Group. All rights reserved.
           </p>
           <div className="flex gap-8">
             <a href="#" className="text-xs text-muted-foreground/60 hover:text-foreground transition-colors">Privacy Policy</a>

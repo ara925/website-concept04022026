@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { X } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroAbout from "@/assets/hero-about.jpg";
@@ -12,8 +10,8 @@ const About = () => {
   return (
     <div ref={scrollRef}>
       <HeroSection
-        title="Guiding Strategic Decision Making"
-        subtitle="A dedicated seniors housing advisory team with deep market knowledge and a commitment to delivering exceptional results for our clients."
+        title="Who We Are"
+        subtitle="Decker Healthcare Group is a seniors housing brokerage and advisory firm. We represent owners and operators in the sale and financing of assisted living, memory care, skilled nursing, and independent living communities across the United States."
         backgroundImage={heroAbout}
       />
 

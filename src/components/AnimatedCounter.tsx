@@ -7,10 +7,11 @@ interface AnimatedCounterProps {
   decimals?: number;
   label: string;
   duration?: number;
+  formatNumber?: boolean;
 }
 
-const AnimatedCounter = ({ end, prefix = "", suffix = "", decimals = 0, label, duration = 2000 }: AnimatedCounterProps) => {
-  const { ref, display } = useCounterAnimation(end, duration, prefix, suffix, decimals);
+const AnimatedCounter = ({ end, prefix = "", suffix = "", decimals = 0, label, duration = 2000, formatNumber = false }: AnimatedCounterProps) => {
+  const { ref, display } = useCounterAnimation(end, duration, prefix, suffix, decimals, formatNumber);
 
   return (
     <div ref={ref} className="text-center">
