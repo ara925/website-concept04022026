@@ -29,7 +29,7 @@ const teamMembers = [
     title: "Managing Director",
     email: "jeff@deckerhealthcare.com",
     phone: "(662) 404-1668",
-    image: null,
+    image: jeffRhodes,
     bio: "Jeff Rhodes is a Managing Director at Decker Healthcare Group, where he advises owners, operators, and investors across the seniors housing and long-term care industry, helping them evaluate the sale, lease, or financing of their communities.\n\nJeff's career in the senior care space began in 2004. He later became a partner at The Rhoman Group, Inc., where he serves as President and has been directly involved in the acquisition, development, and structuring of long-term care assets across multiple states. His experience includes navigating certificate of need processes, bed licensing, and complex regulatory approvals tied to highly regulated healthcare environments.\n\nThroughout his career, Jeff has been involved in over $800 million in seniors housing and healthcare transactions. A core focus of his work has been within the certified Medicaid bed market, where he has helped source new bed allocations and facilitate the transfer of existing beds. His group has played a role in bringing thousands of beds to market over the past two decades, with particular depth in Texas, Mississippi, and Arkansas.\n\nJeff is also actively involved in Valiant Healthcare Management, a leading provider of senior care throughout northern Louisiana. His operational involvement provides real-time insight into staffing, care delivery, and financial performance, shaping how he evaluates opportunities and advises clients.",
   },
   {
