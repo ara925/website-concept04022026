@@ -22,7 +22,7 @@ const teamMembers = [
     name: "Justin Valle",
     title: "Senior Associate",
     email: "justin@deckerhealthcare.com",
-    image: null,
+    image: justinValle,
     bio: "Justin Valle is a Senior Associate at Decker Healthcare Group, where he leads origination and client advisory for the firm's eastern U.S. coverage. Justin specializes in identifying and engaging seniors housing owners and operators who may benefit from a transaction, building relationships through direct outreach and industry networking.\n\nWith four years of experience in seniors housing brokerage, Justin has developed deep expertise in prospecting, market research, and deal origination. He plays a central role in the firm's coverage of critical access hospitals divesting senior care communities in the eastern United States.\n\nJustin manages buyer and seller communications throughout the deal process and contributes to the firm's market intelligence and reporting efforts.\n\nHe is based in Chicago, Illinois.",
   },
   {
