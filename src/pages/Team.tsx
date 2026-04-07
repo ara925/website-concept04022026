@@ -6,6 +6,8 @@ import heroTrackRecord from "@/assets/hero-track-record.jpg";
 import facilityInterior from "@/assets/facility-interior.jpg";
 import billJanis1 from "@/assets/bill-janis-1.jpg";
 import billJanis2 from "@/assets/bill-janis-2.jpg";
+import cullenNguyen from "@/assets/cullen-nguyen.jpg";
+import jeffRhodes from "@/assets/jeff-rhodes.jpg";
 
 const teamMembers = [
   {
