@@ -5,21 +5,29 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroContact from "@/assets/hero-contact.jpg";
 
+const roleOptions = [
+  "Owner/Operator",
+  "Buyer/Investor",
+  "Lender",
+  "Attorney",
+  "Other",
+];
+
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", role: "", message: "" });
   const scrollRef = useScrollAnimation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Thank you for your message. We will be in touch shortly.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", role: "", message: "" });
   };
 
   return (
     <div ref={scrollRef}>
       <HeroSection
         title="Contact Us"
-        subtitle="We welcome the opportunity to discuss how Decker Healthcare Group can help you achieve your strategic objectives."
+        subtitle="Whether you are exploring a sale, seeking financing, or looking to acquire a seniors housing community, we welcome the opportunity to have a confidential conversation."
         backgroundImage={heroContact}
       />
 
@@ -68,8 +76,24 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full h-12 px-0 bg-transparent border-0 border-b border-border text-foreground placeholder:text-muted-foreground/50 text-sm focus:outline-none focus:border-primary transition-colors"
-                    placeholder="(555) 123-4567"
+                    placeholder="(XXX) XXX-XXXX"
                   />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
+                    I am a...
+                  </label>
+                  <select
+                    required
+                    value={formData.role}
+                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                    className="w-full h-12 px-0 bg-transparent border-0 border-b border-border text-foreground text-sm focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled className="bg-card text-muted-foreground">Select one...</option>
+                    {roleOptions.map((role) => (
+                      <option key={role} value={role} className="bg-card text-foreground">{role}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
@@ -121,12 +145,6 @@ const Contact = () => {
                       >
                         info@deckerhealthcare.com
                       </a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-sm text-muted-foreground">(312) 555-0100</span>
                     </div>
                   </div>
                 </div>

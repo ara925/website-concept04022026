@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Shield, Users, Briefcase, BarChart3 } from "lucide-react";
+import { ArrowRight, Building2, Shield, Users, Briefcase, BarChart3, Database } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ClientQuotes from "@/components/ClientQuotes";
@@ -18,8 +18,8 @@ const Index = () => {
     <div ref={scrollRef}>
       {/* Hero */}
       <HeroSection
-        title="Seniors Housing Advisory. Redefined."
-        subtitle="Specialized brokerage and capital markets advisory for assisted living, skilled nursing, and seniors housing assets nationwide."
+        title="Seniors Housing Brokerage. Built on Relationships."
+        subtitle="We represent owners and operators of assisted living, memory care, skilled nursing, and independent living communities in the sale and financing of their properties."
         size="large"
         showParticles
         backgroundImage={heroHome}
@@ -48,11 +48,10 @@ const Index = () => {
       {/* Animated Metrics */}
       <section className="stats-bar">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <AnimatedCounter end={847} prefix="$" suffix="M" label="Total Transaction Volume" duration={2500} />
-            <AnimatedCounter end={2340} suffix="+" label="Buyers in Database" duration={2500} />
-            <AnimatedCounter end={96.8} suffix="%" decimals={1} label="Avg. % of Asking Price" duration={2500} />
-            <AnimatedCounter end={4} label="Team Members" duration={1500} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <AnimatedCounter end={687482825} prefix="$" label="Total Transaction Volume" duration={2500} formatNumber />
+            <AnimatedCounter end={11269} label="Buyers in Database" duration={2500} formatNumber />
+            <AnimatedCounter end={88.6} suffix="%" decimals={1} label="Avg. % of Asking Price" duration={2500} />
           </div>
         </div>
       </section>
@@ -80,7 +79,7 @@ const Index = () => {
                   Seniors Housing Brokerage
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Specialized brokerage for assisted living, skilled nursing, and memory care communities. These transactions uniquely involve both real estate and an operating business, including complex licensing and regulatory considerations that require deep sector expertise.
+                  Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building with people living in it who need help getting out of bed in the morning. That changes everything. We are selling a living, breathing business that cares for the most vulnerable population in this country. These transactions require state regulatory approval, operational continuity, and a buyer who understands what they're taking on.
                 </p>
                 <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
@@ -102,7 +101,7 @@ const Index = () => {
                   Capital Markets Advisory
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Comprehensive capital raising solutions including debt placement, recapitalizations, and financial restructuring for seniors housing operators and investors of all sizes.
+                  Debt placement, recapitalizations, and acquisition financing for seniors housing owners and operators. We have a deep network of banks, credit funds, private debt lenders, and family office funds that lend in the Seniors Housing asset class.
                 </p>
                 <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
@@ -114,7 +113,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Facility Image Break */}
+      {/* Photo Banner */}
       <section className="relative h-[40vh] overflow-hidden">
         <img src={facilityCampus} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
@@ -131,7 +130,7 @@ const Index = () => {
       {/* Client Quotes */}
       <ClientQuotes />
 
-      {/* Why Us */}
+      {/* The Decker Difference */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/[0.03] to-transparent" />
         
@@ -148,19 +147,19 @@ const Index = () => {
                 icon: Users,
                 title: "Deep Market Knowledge",
                 description:
-                  "Decades of combined experience specifically in seniors housing — assisted living, skilled nursing, memory care, and CCRCs. We understand the unique complexities of transacting both real estate and operating businesses.",
+                  "We built proprietary systems to track every licensed facility in our coverage states, monitor ownership changes in real time, and underwrite operations at a level that most brokers never reach. Our team members also have extensive experience on the operational side of the business, having been involved in senior community ownership and maintaining administrator's licenses.",
               },
               {
                 icon: Shield,
                 title: "Integrity First",
                 description:
-                  "We've been known to advise clients to walk away when terms aren't in their best interest. Our reputation for honesty and advocacy is what keeps clients coming back.",
+                  "Our approach is direct. We will tell a client not to sell if the market isn't right. We will tell a buyer their offer doesn't work and why. We invest the time to understand each client's business, community, and objectives before recommending a course of action. Every owner's situation is different, and the playbook should reflect that. Our reputation is built on being honest about what a property is worth, what a deal should look like, and whether a transaction makes sense at all.",
               },
               {
-                icon: Briefcase,
+                icon: Database,
                 title: "Proprietary Buyer Database",
                 description:
-                  "Our extensive, actively-managed database of qualified buyers enables us to match properties with the right acquirers quickly and confidentially, maximizing value for our clients.",
+                  "Our actively managed database of qualified buyers allows us to quickly and confidentially match opportunities with the right acquirers. We maintain real-time insight into buyer criteria, capital availability, and geographic focus, enabling targeted outreach that drives competitive tension and maximizes value for our clients.",
               },
             ].map((item) => (
               <div
@@ -180,13 +179,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skilled Nursing Image Break */}
-      <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilitySkilledNursing} alt="Skilled nursing facility" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-background/60" />
-      </section>
-
-      {/* CTA Section */}
+      {/* Bottom CTA Section */}
       <section className="section-padding relative overflow-hidden">
         <img src={facilityAssistedLiving} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/80" />
@@ -196,7 +189,7 @@ const Index = () => {
             <div className="accent-line mb-6" />
             <h2 className="heading-lg text-foreground mb-6">Looking to Buy or Sell a Seniors Housing Community?</h2>
             <p className="text-muted-foreground leading-relaxed mb-10 text-lg">
-              Whether you're an owner exploring a sale or a buyer seeking acquisition opportunities, our team is ready to help you navigate the process.
+              Whether you are an owner exploring a sale, a nonprofit board evaluating strategic alternatives, or a buyer seeking acquisition opportunities, we would welcome the chance to have a conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button

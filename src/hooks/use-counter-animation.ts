@@ -5,7 +5,8 @@ export const useCounterAnimation = (
   duration: number = 2000,
   prefix: string = "",
   suffix: string = "",
-  decimals: number = 0
+  decimals: number = 0,
+  formatNumber: boolean = false
 ) => {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -46,6 +47,13 @@ export const useCounterAnimation = (
     return () => cancelAnimationFrame(animationFrame);
   }, [hasStarted, end, duration]);
 
-  const display = `${prefix}${count.toFixed(decimals)}${suffix}`;
+  const formatWithCommas = (num: number): string => {
+    return Math.round(num).toLocaleString("en-US");
+  };
+
+  const display = formatNumber
+    ? `${prefix}${formatWithCommas(count)}${suffix}`
+    : `${prefix}${count.toFixed(decimals)}${suffix}`;
+
   return { ref, display };
 };
