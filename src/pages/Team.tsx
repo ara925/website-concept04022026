@@ -35,7 +35,7 @@ const teamMembers = [
   {
     name: "Cullen Nguyen",
     title: "Managing Director",
-    image: jeffRhodes,
+    image: cullenNguyen,
     bio: "Bio coming soon.",
   },
 ];
