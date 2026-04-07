@@ -8,6 +8,7 @@ import billJanis1 from "@/assets/bill-janis-1.jpg";
 import billJanis2 from "@/assets/bill-janis-2.jpg";
 import cullenNguyen from "@/assets/cullen-nguyen.jpg";
 import jeffRhodes from "@/assets/jeff-rhodes.jpg";
+import justinValle from "@/assets/justin-valle.jpg";
 
 const teamMembers = [
   {
