@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroHome from "@/assets/hero-home.jpg";
 import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
-import facilityCampus from "@/assets/facility-campus.jpg";
-import facilitySkilledNursing from "@/assets/facility-skilled-nursing.jpg";
+import facilityCampusClean from "@/assets/facility-campus-clean.jpg";
 import deckerLogo from "@/assets/decker-logo.png";
 
 const Index = () => {
@@ -50,7 +49,7 @@ const Index = () => {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatedCounter end={103478346} prefix="$" label="Total Transaction Volume" duration={2500} formatNumber />
-            <AnimatedCounter end={2340} label="Buyers in Database" sublabel="+ 37 new in the last 30 days" duration={2500} formatNumber />
+            <AnimatedCounter end={11269} label="Buyers in Database" sublabel="+ 37 added in last 30 days" duration={2500} formatNumber />
             <AnimatedCounter end={87.2} suffix="%" decimals={1} label="Avg. % of Asking Price" duration={2500} />
           </div>
         </div>
@@ -68,7 +67,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 stagger-children">
             {/* Seniors Housing Brokerage Card */}
             <Link to="/services#seniors-housing" className="group animate-on-scroll">
-              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full">
+              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <Building2 className="h-5 w-5 text-primary" />
@@ -78,8 +77,8 @@ const Index = () => {
                 <h3 className="heading-md text-foreground mb-5 group-hover:text-primary transition-colors">
                   Seniors Housing Brokerage
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building with people living in it who need help getting out of bed in the morning. That changes everything. We are selling a living, breathing business that cares for the most vulnerable population in this country. These transactions require state regulatory approval, operational continuity, and a buyer who understands what they're taking on.
+                <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
+                  Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building where people live and receive care every day. That changes everything about how a transaction should be managed. These are living, breathing businesses that serve the most vulnerable population in this country. Every transaction requires state regulatory approval, operational continuity, and a buyer who truly understands what they're taking on. Our role is to ensure a seamless transition where residents, families, and employees never feel a disruption, all while maximizing value for our client.
                 </p>
                 <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
@@ -90,7 +89,7 @@ const Index = () => {
 
             {/* Capital Markets Card */}
             <Link to="/services#capital-markets" className="group animate-on-scroll">
-              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full">
+              <div className="relative bg-card border border-border/30 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--card-hover-shadow)] h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <BarChart3 className="h-5 w-5 text-primary" />
@@ -100,7 +99,7 @@ const Index = () => {
                 <h3 className="heading-md text-foreground mb-5 group-hover:text-primary transition-colors">
                   Capital Markets Advisory
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
                   Debt placement, recapitalizations, and acquisition financing for seniors housing owners and operators. We have a deep network of banks, credit funds, private debt lenders, and family office funds that lend in the Seniors Housing asset class.
                 </p>
                 <span className="text-primary font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
@@ -115,13 +114,13 @@ const Index = () => {
 
       {/* Photo Banner */}
       <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilityCampus} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={facilityCampusClean} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <img src={deckerLogo} alt="Decker Healthcare Group" className="h-12 w-auto brightness-0 invert mx-auto mb-4" />
             <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground px-6">
-              Dedicated to Seniors Housing. Driven by Results.
+              Your Community. Our Commitment.
             </p>
           </div>
         </div>
@@ -153,7 +152,7 @@ const Index = () => {
                 icon: Shield,
                 title: "Integrity First",
                 description:
-                  "Our approach is direct. We will tell a client not to sell if the market isn't right. We will tell a buyer their offer doesn't work and why. We invest the time to understand each client's business, community, and objectives before recommending a course of action. Every owner's situation is different, and the playbook should reflect that. Our reputation is built on being honest about what a property is worth, what a deal should look like, and whether a transaction makes sense at all.",
+                  "Our approach is direct. We invest the time to understand each client's business, community, and objectives before recommending a course of action. Every owner's situation is different, and the playbook should reflect that. We give honest guidance on valuation, deal structure, and timing, because our clients deserve a clear picture of their options, not just the answer they want to hear. Our reputation is built on that transparency, and it's why clients trust us with the most important financial decision of their career.",
               },
               {
                 icon: Database,
@@ -189,7 +188,7 @@ const Index = () => {
             <div className="accent-line mb-6" />
             <h2 className="heading-lg text-foreground mb-6">Looking to Buy or Sell a Seniors Housing Community?</h2>
             <p className="text-muted-foreground leading-relaxed mb-10 text-lg">
-              Whether you are an owner exploring a sale, a nonprofit board evaluating strategic alternatives, or a buyer seeking acquisition opportunities, we would welcome the chance to have a conversation.
+              Whether you are a private owner exploring a sale, an organization evaluating strategic alternatives for a senior care asset, or a buyer seeking acquisition opportunities, we would welcome the chance to have a conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button

@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroServices from "@/assets/hero-services.jpg";
-import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
+import facilityCampusClean from "@/assets/facility-campus-clean.jpg";
 
 const services = [
   {
@@ -9,12 +9,12 @@ const services = [
     label: "Brokerage",
     title: "Seniors Housing Brokerage",
     description:
-      "Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building with people living in it who need help getting out of bed in the morning. That changes everything.\n\nWe are selling a living, breathing business that cares for the most vulnerable population in this country. These transactions require state regulatory approval, operational continuity, and a buyer who understands what they're taking on. The goal is a seamless transition where residents, families, and employees never feel a disruption, all while maximizing value for our client.",
+      "Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building where people live and receive care every day. That changes everything about how a transaction should be managed.\n\nThese are living, breathing businesses that serve the most vulnerable population in this country. Every transaction requires state regulatory approval, operational continuity, and a buyer who truly understands what they're taking on. Our role is to ensure a seamless transition where residents, families, and employees never feel a disruption, all while maximizing value for our client.",
     items: [
       {
-        title: "Assisted Living & Memory Care",
+        title: "Assisted Living, Memory Care, & Independent Living",
         description:
-          "Execution-focused brokerage for assisted living and memory care communities, centered on accurate valuation and real buyer feedback from the market. We position assets based on current operating realities, navigate licensing dynamics, and drive competitive processes that translate into maximizing value.",
+          "Execution-focused brokerage for assisted living and memory care communities, centered on accurate valuation and real buyer feedback from the market. We position assets to highlight operational strengths and growth potential, navigate licensing dynamics, and drive competitive processes that maximize value for our clients.",
       },
       {
         title: "Skilled Nursing Facilities",
@@ -24,7 +24,7 @@ const services = [
       {
         title: "Non-Profit & Hospital-Owned Assets",
         description:
-          "Advisory for non-profit systems and hospital-owned senior housing assets, where transactions require alignment beyond price alone. We understand board governance, community obligations, and the need to preserve continuity of care, while structuring processes that satisfy fiduciary responsibilities and achieve executable outcomes.",
+          "Advisory for nonprofit organizations and hospital-owned senior housing assets, including standalone nonprofits, faith-based groups, and health systems where transactions require alignment well beyond price alone. We understand board governance, community obligations, and the need to preserve continuity of care, while structuring processes that satisfy fiduciary responsibilities and deliver the right buyer at the right terms.",
       },
       {
         title: "Distressed & Turnaround Assets",
@@ -116,7 +116,7 @@ const Services = () => {
 
       {/* Facility images section */}
       <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilityAssistedLiving} alt="Assisted living community" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={facilityCampusClean} alt="Senior living community" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground text-center px-6">
