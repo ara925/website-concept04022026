@@ -49,9 +49,9 @@ const Index = () => {
       <section className="stats-bar">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <AnimatedCounter end={687482825} prefix="$" label="Total Transaction Volume" duration={2500} formatNumber />
-            <AnimatedCounter end={11269} label="Buyers in Database" duration={2500} formatNumber />
-            <AnimatedCounter end={88.6} suffix="%" decimals={1} label="Avg. % of Asking Price" duration={2500} />
+            <AnimatedCounter end={103478346} prefix="$" label="Total Transaction Volume" duration={2500} formatNumber />
+            <AnimatedCounter end={2340} label="Buyers in Database" sublabel="+ 37 new in the last 30 days" duration={2500} formatNumber />
+            <AnimatedCounter end={87.2} suffix="%" decimals={1} label="Avg. % of Asking Price" duration={2500} />
           </div>
         </div>
       </section>

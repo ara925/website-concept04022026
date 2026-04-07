@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import heroCareers from "@/assets/hero-careers.jpg";
+import deckerLogo from "@/assets/decker-logo.png";
 
 const Careers = () => {
   const scrollRef = useScrollAnimation();
@@ -13,8 +13,12 @@ const Careers = () => {
       <HeroSection
         title="Careers"
         subtitle="Join a team of dedicated professionals committed to excellence in healthcare advisory."
-        backgroundImage={heroCareers}
-      />
+      >
+        <div className="mt-8 flex items-center gap-4">
+          <img src={deckerLogo} alt="Decker Healthcare Group" className="h-10 w-auto brightness-0 invert opacity-60" />
+          <p className="text-lg text-muted-foreground italic">Build your career in seniors housing.</p>
+        </div>
+      </HeroSection>
 
       <section className="section-padding">
         <div className="max-w-[1400px] mx-auto">
