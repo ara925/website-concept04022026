@@ -1,0 +1,499 @@
+<style>
+.collection-69c88ba9bbe07315a5d85a76 .fe-block-1494477e2b79eabffef8,
+.collection-69c88ba9bbe07315a5d85a76 .fe-block-f334db0148dd530f59e3,
+.collection-69c88ba9bbe07315a5d85a76 .fe-block-25bbf69834a93c1102ba,
+.collection-69c88ba9bbe07315a5d85a76 .page-section:nth-of-type(4),
+.collection-69c88ba9bbe07315a5d85a76 #footer-sections {
+  display: none !important;
+}
+
+#codex-test {
+  display: none !important;
+}
+
+.decker-home-remainder {
+  --decker-bg: #060b16;
+  --decker-surface: #0b1220;
+  --decker-text: #f6f8fc;
+  --decker-muted: #94a1b8;
+  --decker-line: rgba(70, 92, 132, 0.36);
+  --decker-blue: #3b82f6;
+  --decker-max: 1400px;
+  width: min(var(--decker-max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 24px 0 80px;
+  color: var(--decker-text);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.decker-home-remainder * {
+  box-sizing: border-box;
+}
+
+.decker-home-remainder a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.decker-home-remainder__section {
+  padding: 64px 0;
+}
+
+.decker-home-remainder__section--split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.decker-home-remainder__accent {
+  width: 60px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: var(--decker-blue);
+}
+
+.decker-home-remainder__eyebrow {
+  margin: 0 0 12px;
+  color: var(--decker-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.decker-home-remainder h2 {
+  margin: 0;
+  font-size: clamp(32px, 3vw, 54px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.decker-home-remainder p {
+  margin: 0;
+  color: var(--decker-muted);
+  line-height: 1.85;
+}
+
+.decker-home-remainder__copy {
+  display: grid;
+  gap: 20px;
+}
+
+.decker-home-remainder__banner,
+.decker-home-remainder__cta {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.decker-home-remainder__banner {
+  min-height: 42vh;
+  margin-top: 24px;
+}
+
+.decker-home-remainder__cta {
+  min-height: 520px;
+  margin-top: 12px;
+}
+
+.decker-home-remainder__banner img,
+.decker-home-remainder__cta img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.decker-home-remainder__banner::after,
+.decker-home-remainder__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 11, 22, 0.66);
+}
+
+.decker-home-remainder__banner-inner,
+.decker-home-remainder__cta-inner {
+  position: relative;
+  z-index: 1;
+  width: min(var(--decker-max), calc(100vw - 48px));
+  margin: 0 auto;
+}
+
+.decker-home-remainder__banner-inner {
+  min-height: 42vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.decker-home-remainder__banner-inner p {
+  color: var(--decker-text);
+  font-size: clamp(24px, 3vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.decker-home-remainder__testimonial {
+  max-width: 980px;
+}
+
+.decker-home-remainder__quote {
+  margin: 0 0 28px;
+  color: var(--decker-muted);
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.8;
+}
+
+.decker-home-remainder__name {
+  margin: 0 0 8px;
+  color: var(--decker-text);
+  font-weight: 800;
+}
+
+.decker-home-remainder__meta {
+  margin: 0;
+  color: var(--decker-blue);
+  font-size: 15px;
+}
+
+.decker-home-remainder__testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.decker-home-remainder__buttons,
+.decker-home-remainder__dots,
+.decker-home-remainder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.decker-home-remainder__button,
+.decker-home-remainder__button:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--decker-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.decker-home-remainder__button--primary,
+.decker-home-remainder__button--primary:visited {
+  background: var(--decker-blue);
+  border-color: var(--decker-blue);
+  color: #09111f;
+}
+
+.decker-home-remainder__dot {
+  width: 24px;
+  height: 2px;
+  border: 0;
+  background: rgba(148, 161, 184, 0.45);
+  cursor: pointer;
+}
+
+.decker-home-remainder__dot.is-active {
+  width: 48px;
+  background: var(--decker-blue);
+}
+
+.decker-home-remainder__difference {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.decker-home-remainder__difference-card {
+  padding: 44px;
+  border: 1px solid var(--decker-line);
+  background: var(--decker-surface);
+}
+
+.decker-home-remainder__difference-card h3 {
+  margin: 0 0 16px;
+  color: var(--decker-text);
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.decker-home-remainder__difference-card p {
+  color: var(--decker-muted);
+}
+
+.decker-home-remainder__cta-inner {
+  max-width: 840px;
+  padding: 96px 0;
+}
+
+.decker-home-remainder__cta-inner p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.decker-home-remainder__footer {
+  padding-top: 64px;
+  border-top: 1px solid var(--decker-line);
+}
+
+.decker-home-remainder__footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.decker-home-remainder__footer-brand img {
+  max-width: 180px;
+  margin-bottom: 18px;
+}
+
+.decker-home-remainder__footer-brand p,
+.decker-home-remainder__footer a {
+  color: var(--decker-muted);
+  line-height: 1.8;
+}
+
+.decker-home-remainder__footer-title {
+  margin: 0 0 16px;
+  color: var(--decker-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.decker-home-remainder__footer a {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.decker-home-remainder__footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--decker-line);
+}
+
+.decker-home-remainder__footer-bottom p {
+  color: var(--decker-muted);
+}
+
+@media (max-width: 991px) {
+  .decker-home-remainder,
+  .decker-home-remainder__banner-inner,
+  .decker-home-remainder__cta-inner {
+    width: min(var(--decker-max), calc(100vw - 32px));
+  }
+
+  .decker-home-remainder__section--split,
+  .decker-home-remainder__difference,
+  .decker-home-remainder__footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decker-home-remainder__testimonial-nav,
+  .decker-home-remainder__footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<div class="decker-home-remainder">
+  <section class="decker-home-remainder__section decker-home-remainder__section--split">
+    <div>
+      <div class="decker-home-remainder__accent"></div>
+      <p class="decker-home-remainder__eyebrow">Who We Are</p>
+      <h2>Decker Healthcare Group</h2>
+    </div>
+    <div class="decker-home-remainder__copy">
+      <p>Decker Healthcare Group is a seniors housing brokerage and advisory firm. We represent owners and operators in the sale and financing of assisted living, memory care, skilled nursing, and independent living communities across the United States.</p>
+      <p>We understand that seniors housing transactions are uniquely complex, involving both real estate and an operating business, with licensing, regulatory, and resident care considerations that require specialized knowledge.</p>
+      <p>Our approach is relationship-driven. We invest the time to understand each client’s business, community, and objectives before recommending a course of action.</p>
+    </div>
+  </section>
+
+  <section class="decker-home-remainder__banner">
+        <img src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/home-banner-building.jpg" alt="Senior living community campus">
+    <div class="decker-home-remainder__banner-inner">
+      <p>Your Community. Our Commitment.</p>
+    </div>
+  </section>
+
+  <section class="decker-home-remainder__section decker-home-remainder__testimonial" data-testimonials>
+    <div class="decker-home-remainder__accent"></div>
+    <p class="decker-home-remainder__eyebrow">Testimonials</p>
+    <h2>What Our Clients Say</h2>
+
+    <article data-testimonial-item>
+      <p class="decker-home-remainder__quote">"After the vacated tenant left the property in a dilapidated condition, securing a new tenant became our immediate focus. Helios and his team not only secured a tenant willing to take on such a challenging assignment but also raised a considerable amount of funding from public funding sources to make the project financially viable."</p>
+      <p class="decker-home-remainder__name">Barry Chin</p>
+      <p class="decker-home-remainder__meta">Executive Board Member, Cornerstone Evangelical Baptist Church</p>
+    </article>
+
+    <article data-testimonial-item hidden>
+      <p class="decker-home-remainder__quote">"What stood out most was his depth of market knowledge and the extensive database of transactions that he and his team tracked. When we finally decided to sell, Helios and his team delivered, achieving our pricing goals and exceeding expectations throughout the process."</p>
+      <p class="decker-home-remainder__name">Linda Zinnel</p>
+      <p class="decker-home-remainder__meta">Owner, Cottonwood Estates</p>
+    </article>
+
+    <article data-testimonial-item hidden>
+      <p class="decker-home-remainder__quote">"Bill and his team have been an invaluable partner in financing our nursing homes and assisted living communities across the country. Their deep market expertise, responsiveness, and ability to deliver rapid financing solutions have made them our first call for every transaction."</p>
+      <p class="decker-home-remainder__name">Jone Chen</p>
+      <p class="decker-home-remainder__meta">Executive Chairman, EVA Care Group</p>
+    </article>
+
+    <div class="decker-home-remainder__testimonial-nav">
+      <div class="decker-home-remainder__buttons">
+        <button type="button" class="decker-home-remainder__button" data-prev>Prev</button>
+        <button type="button" class="decker-home-remainder__button" data-next>Next</button>
+      </div>
+      <div class="decker-home-remainder__dots">
+        <button type="button" class="decker-home-remainder__dot is-active" data-dot></button>
+        <button type="button" class="decker-home-remainder__dot" data-dot></button>
+        <button type="button" class="decker-home-remainder__dot" data-dot></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="decker-home-remainder__section">
+    <div class="decker-home-remainder__accent"></div>
+    <p class="decker-home-remainder__eyebrow">Why Choose Us</p>
+    <h2>The Decker Difference</h2>
+    <div class="decker-home-remainder__difference">
+      <article class="decker-home-remainder__difference-card">
+        <h3>Deep Market Knowledge</h3>
+        <p>We built proprietary systems to track every licensed facility in our coverage states, monitor ownership changes in real time, and underwrite operations at a level that most brokers never reach.</p>
+      </article>
+      <article class="decker-home-remainder__difference-card">
+        <h3>Integrity First</h3>
+        <p>We invest the time to understand each client’s business, community, and objectives before recommending a course of action. Owners deserve honest guidance on valuation, deal structure, and timing.</p>
+      </article>
+      <article class="decker-home-remainder__difference-card">
+        <h3>Proprietary Buyer Database</h3>
+        <p>Our actively managed database of qualified buyers allows us to confidentially match opportunities with the right acquirers and create targeted outreach that drives competitive tension.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="decker-home-remainder__cta">
+        <img src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/home-cta-building.jpg" alt="Assisted living facility">
+    <div class="decker-home-remainder__cta-inner">
+      <div class="decker-home-remainder__accent"></div>
+      <h2>Looking to Buy or Sell a Seniors Housing Community?</h2>
+      <p>Whether you are a private owner exploring a sale, an organization evaluating strategic alternatives for a senior care asset, or a buyer seeking acquisition opportunities, we would welcome the chance to have a conversation.</p>
+      <div class="decker-home-remainder__actions">
+        <a class="decker-home-remainder__button decker-home-remainder__button--primary" href="/contact">Contact Us</a>
+        <a class="decker-home-remainder__button" href="/buyer-registration">Register as a Buyer</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="decker-home-remainder__footer">
+    <div class="decker-home-remainder__footer-grid">
+      <div class="decker-home-remainder__footer-brand">
+        <img src="https://images.squarespace-cdn.com/content/v1/69c88ba8bbe07315a5d85a47/958b15f2-e7af-4a34-8a24-cd0e8f0a4cc1/decker-logo.png" alt="Decker Healthcare Group">
+        <p>Seniors housing brokerage and capital markets advisory. Assisted living, skilled nursing, memory care, and independent living communities. Nationwide.</p>
+      </div>
+      <div>
+        <p class="decker-home-remainder__footer-title">Company</p>
+        <a href="/about">About</a><br>
+        <a href="/services">Services</a><br>
+        <a href="/team">Team</a><br>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <p class="decker-home-remainder__footer-title">Services</p>
+        <a href="/services">Seniors Housing Brokerage</a><br>
+        <a href="/services">Capital Markets</a><br>
+        <a href="/buyer-registration">Buyer Registration</a>
+      </div>
+      <div>
+        <p class="decker-home-remainder__footer-title">Contact</p>
+        <a href="mailto:info@deckerhealthcare.com">info@deckerhealthcare.com</a><br>
+        <a href="/contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="decker-home-remainder__footer-bottom">
+      <p>&copy; 2026 Decker Healthcare Group. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#" style="margin-left: 24px;">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var allRoots = Array.prototype.slice.call(document.querySelectorAll(".decker-home-remainder"));
+  if (allRoots.length > 1) {
+    allRoots.slice(0, -1).forEach(function (node) {
+      var wrapper = node.closest(".sqs-html-content, .sqs-block-html, .html-block") || node;
+      wrapper.remove();
+    });
+  }
+
+  var current = document.querySelector(".decker-home-remainder:last-of-type");
+  if (!current || current.getAttribute("data-mounted") === "true") return;
+  current.setAttribute("data-mounted", "true");
+
+  var testimonialRoot = current.querySelector("[data-testimonials]");
+  if (!testimonialRoot) return;
+  var items = Array.prototype.slice.call(testimonialRoot.querySelectorAll("[data-testimonial-item]"));
+  var dots = Array.prototype.slice.call(testimonialRoot.querySelectorAll("[data-dot]"));
+  var prev = testimonialRoot.querySelector("[data-prev]");
+  var next = testimonialRoot.querySelector("[data-next]");
+  var index = 0;
+
+  function render() {
+    items.forEach(function (item, itemIndex) {
+      item.hidden = itemIndex !== index;
+    });
+    dots.forEach(function (dot, dotIndex) {
+      dot.classList.toggle("is-active", dotIndex === index);
+    });
+  }
+
+  if (prev) prev.addEventListener("click", function () {
+    index = (index - 1 + items.length) % items.length;
+    render();
+  });
+
+  if (next) next.addEventListener("click", function () {
+    index = (index + 1) % items.length;
+    render();
+  });
+
+  dots.forEach(function (dot, dotIndex) {
+    dot.addEventListener("click", function () {
+      index = dotIndex;
+      render();
+    });
+  });
+
+  render();
+})();
+</script>

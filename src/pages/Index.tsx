@@ -6,8 +6,8 @@ import ClientQuotes from "@/components/ClientQuotes";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroHome from "@/assets/hero-home.jpg";
-import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
-import facilityCampusClean from "@/assets/facility-campus-clean.jpg";
+import homeBannerBuilding from "@/assets/home-banner-building.jpg";
+import homeCtaBuilding from "@/assets/home-cta-building.jpg";
 import deckerLogo from "@/assets/decker-logo.png";
 
 const Index = () => {
@@ -114,7 +114,7 @@ const Index = () => {
 
       {/* Photo Banner */}
       <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilityCampusClean} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={homeBannerBuilding} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
@@ -180,7 +180,7 @@ const Index = () => {
 
       {/* Bottom CTA Section */}
       <section className="section-padding relative overflow-hidden">
-        <img src={facilityAssistedLiving} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={homeCtaBuilding} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/80" />
         
         <div className="max-w-[1400px] mx-auto relative z-10">

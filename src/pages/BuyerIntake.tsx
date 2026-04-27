@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import facilityAssistedLiving from "@/assets/facility-assisted-living.jpg";
+import buyerBuilding from "@/assets/buyer-building.jpg";
 
 const facilityTypes = [
   "Assisted Living",
@@ -84,7 +84,7 @@ const BuyerIntake = () => {
         <HeroSection
           title="Thank You"
           subtitle="Your buyer profile has been submitted. A member of our team will be in touch shortly."
-          backgroundImage={facilityAssistedLiving}
+          backgroundImage={buyerBuilding}
         />
         <section className="section-padding">
           <div className="max-w-[800px] mx-auto text-center animate-on-scroll">
@@ -104,7 +104,7 @@ const BuyerIntake = () => {
       <HeroSection
         title="Buyer Registration"
         subtitle="Tell us what you're looking for. We'll match you with opportunities from our extensive seniors housing pipeline."
-        backgroundImage={facilityAssistedLiving}
+        backgroundImage={buyerBuilding}
       />
 
       <section className="section-padding">
@@ -244,7 +244,7 @@ const BuyerIntake = () => {
 
             <div className="animate-on-scroll hidden lg:block">
               <img
-                src={facilityAssistedLiving}
+                src={buyerBuilding}
                 alt="Assisted living facility"
                 className="w-full h-[500px] object-cover mb-6"
                 loading="lazy"

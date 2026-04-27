@@ -1,0 +1,622 @@
+<style>
+.sq-buyer {
+  --bg: #0a0f1c;
+  --bg-card: #0f1525;
+  --fg: #e2e8f0;
+  --fg-muted: #8a9bb5;
+  --primary: #3b82f6;
+  --border: #1e2a3f;
+  --shadow: 0 24px 80px rgba(4, 9, 18, 0.26);
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sq-buyer *,
+.sq-buyer *::before,
+.sq-buyer *::after {
+  box-sizing: border-box;
+}
+
+.sq-buyer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sq-buyer img {
+  display: block;
+  width: 100%;
+}
+
+.sq-buyer button,
+.sq-buyer input,
+.sq-buyer textarea {
+  font: inherit;
+}
+
+.sq-buyer .sq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.sq-buyer .sq-accent {
+  width: 60px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: var(--primary);
+}
+
+.sq-buyer .sq-label {
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.sq-buyer .sq-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.sq-buyer .sq-hero-bg img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.sq-buyer .sq-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(7, 11, 21, 0.9) 0%, rgba(7, 11, 21, 0.6) 48%, rgba(7, 11, 21, 0.92) 100%),
+    rgba(10, 15, 28, 0.36);
+}
+
+.sq-buyer .sq-hero-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  background: linear-gradient(to top, var(--bg), transparent);
+}
+
+.sq-buyer .sq-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 0 80px;
+}
+
+.sq-buyer h1 {
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: clamp(2.6rem, 5.4vw, 4.9rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-subtitle {
+  max-width: 760px;
+  color: var(--fg-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.sq-buyer .sq-section {
+  padding: 96px 0 110px;
+}
+
+.sq-buyer .sq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.sq-buyer h2 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: clamp(1.9rem, 3.8vw, 3.35rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-copy {
+  margin: 0 0 36px;
+  color: var(--fg-muted);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.sq-buyer .sq-form {
+  display: grid;
+  gap: 26px;
+}
+
+.sq-buyer .sq-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sq-buyer .sq-field label,
+.sq-buyer .sq-choice-label {
+  display: block;
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-input,
+.sq-buyer .sq-textarea {
+  width: 100%;
+  padding: 13px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sq-buyer .sq-input::placeholder,
+.sq-buyer .sq-textarea::placeholder {
+  color: rgba(138, 155, 181, 0.5);
+}
+
+.sq-buyer .sq-input:focus,
+.sq-buyer .sq-textarea:focus {
+  border-color: var(--primary);
+}
+
+.sq-buyer .sq-textarea {
+  min-height: 118px;
+  resize: vertical;
+}
+
+.sq-buyer .sq-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sq-buyer .sq-buyer-chip {
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 0.24s ease,
+    background 0.24s ease,
+    color 0.24s ease,
+    transform 0.24s ease;
+}
+
+.sq-buyer .sq-buyer-chip:hover,
+.sq-buyer .sq-buyer-chip:focus-visible {
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.sq-buyer .sq-buyer-chip.is-active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #08111f;
+}
+
+.sq-buyer .sq-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  width: 100%;
+  padding: 0 28px;
+  border: 1px solid transparent;
+  background: var(--primary);
+  color: #08111f;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+.sq-buyer .sq-submit:hover,
+.sq-buyer .sq-submit:focus-visible {
+  transform: translateY(-2px);
+}
+
+.sq-buyer .sq-submit[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sq-buyer .sq-status {
+  display: none;
+  padding: 14px 16px;
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  background: rgba(59, 130, 246, 0.1);
+  color: #d7e5ff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sq-buyer .sq-status.is-visible {
+  display: block;
+}
+
+.sq-buyer .sq-status.is-error {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(127, 29, 29, 0.2);
+  color: #fecaca;
+}
+
+.sq-buyer .sq-aside {
+  display: grid;
+  gap: 26px;
+}
+
+.sq-buyer .sq-aside-image {
+  height: 520px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.sq-buyer .sq-card {
+  padding: 34px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(15, 21, 37, 0.92), rgba(9, 14, 25, 0.96));
+}
+
+.sq-buyer .sq-card h3 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-benefits {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sq-buyer .sq-benefits li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  color: var(--fg-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.sq-buyer .sq-benefits strong {
+  color: var(--primary);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.sq-buyer .sq-success {
+  padding: 40px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.sq-buyer .sq-success-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--primary);
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.sq-buyer .sq-success h3 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.sq-buyer .sq-success p {
+  margin: 0;
+  color: var(--fg-muted);
+  line-height: 1.85;
+}
+
+@media (max-width: 1100px) {
+  .sq-buyer .sq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sq-buyer .sq-aside-image {
+    height: 420px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sq-buyer .sq-container {
+    padding: 0 24px;
+  }
+
+  .sq-buyer .sq-section {
+    padding: 82px 0 92px;
+  }
+
+  .sq-buyer .sq-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sq-buyer .sq-hero-content {
+    padding-bottom: 68px;
+  }
+}
+</style>
+
+<div class="sq-wrap sq-buyer" data-decker-buyer-page="true">
+  <section class="sq-hero">
+    <div class="sq-hero-bg">
+  <img src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/buyer-building.jpg" alt="Assisted living facility">
+    </div>
+    <div class="sq-hero-gradient"></div>
+    <div class="sq-hero-content">
+      <div class="sq-container">
+        <div class="sq-accent"></div>
+        <h1 data-buyer-hero-title>Buyer Registration</h1>
+        <p class="sq-subtitle" data-buyer-hero-copy>Tell us what you're looking for. We'll match you with opportunities from our extensive seniors housing pipeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sq-section">
+    <div class="sq-container">
+      <div class="sq-grid">
+        <div data-buyer-form-panel>
+          <div class="sq-accent"></div>
+          <p class="sq-label">Buyer Database</p>
+          <h2>Register Your Interest</h2>
+          <p class="sq-copy">Our buyer database is one of the most comprehensive in the seniors housing industry. By submitting your acquisition criteria, you'll gain access to deal flow across assisted living, skilled nursing, memory care, and other seniors housing asset types nationwide.</p>
+
+          <div class="sq-status" data-buyer-status></div>
+
+          <form class="sq-form" data-buyer-form>
+            <div class="sq-grid-2">
+              <div class="sq-field">
+                <label for="buyer-company-name">Company Name *</label>
+                <input class="sq-input" id="buyer-company-name" name="companyName" placeholder="Your company" required type="text">
+              </div>
+              <div class="sq-field">
+                <label for="buyer-contact-name">Contact Name *</label>
+                <input class="sq-input" id="buyer-contact-name" name="contactName" placeholder="Your name" required type="text">
+              </div>
+            </div>
+
+            <div class="sq-grid-2">
+              <div class="sq-field">
+                <label for="buyer-email">Email *</label>
+                <input class="sq-input" id="buyer-email" name="email" placeholder="your@email.com" required type="email">
+              </div>
+              <div class="sq-field">
+                <label for="buyer-phone">Phone</label>
+                <input class="sq-input" id="buyer-phone" name="phone" placeholder="(555) 123-4567" type="tel">
+              </div>
+            </div>
+
+            <div>
+              <p class="sq-choice-label">Facility Types of Interest *</p>
+              <div class="sq-chip-group"><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Assisted Living">Assisted Living</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Skilled Nursing">Skilled Nursing</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Memory Care">Memory Care</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Independent Living">Independent Living</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Continuing Care Retirement Community (CCRC)">Continuing Care Retirement Community (CCRC)</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Home Health & Hospice">Home Health & Hospice</button><button class="sq-buyer-chip" data-facility-chip type="button" data-value="Other">Other</button></div>
+            </div>
+
+            <div>
+              <p class="sq-choice-label">Target Deal Size *</p>
+              <div class="sq-chip-group"><button class="sq-buyer-chip" data-deal-chip type="button" data-value="Under $5M">Under $5M</button><button class="sq-buyer-chip" data-deal-chip type="button" data-value="$5M - $15M">$5M - $15M</button><button class="sq-buyer-chip" data-deal-chip type="button" data-value="$15M - $30M">$15M - $30M</button><button class="sq-buyer-chip" data-deal-chip type="button" data-value="$30M - $50M">$30M - $50M</button><button class="sq-buyer-chip" data-deal-chip type="button" data-value="$50M+">$50M+</button></div>
+            </div>
+
+            <div class="sq-field">
+              <label for="buyer-geographies">Target Geographies *</label>
+              <input class="sq-input" id="buyer-geographies" name="geographies" placeholder="e.g., Midwest, Southeast, Nationwide" required type="text">
+            </div>
+
+            <div class="sq-field">
+              <label for="buyer-notes">Additional Notes</label>
+              <textarea class="sq-textarea" id="buyer-notes" name="additionalNotes" placeholder="Any specific criteria, preferences, or deal structures you're looking for..."></textarea>
+            </div>
+
+            <button class="sq-submit" data-buyer-submit type="submit">Submit Buyer Profile <span aria-hidden="true">&rarr;</span></button>
+          </form>
+        </div>
+
+        <aside class="sq-aside">
+        <img alt="Assisted living facility" class="sq-aside-image" src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/buyer-building.jpg">
+          <div class="sq-card">
+            <h3>Why Register?</h3>
+            <ul class="sq-benefits">
+              <li><strong>01</strong><span>Access to proprietary deal flow</span></li>
+              <li><strong>02</strong><span>Early visibility on new listings</span></li>
+              <li><strong>03</strong><span>Targeted matching based on your criteria</span></li>
+              <li><strong>04</strong><span>Confidential, no-obligation process</span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-decker-buyer-page="true"]');
+  if (!root || root.getAttribute('data-buyer-bound') === 'true') return;
+  root.setAttribute('data-buyer-bound', 'true');
+
+  var form = root.querySelector('[data-buyer-form]');
+  var status = root.querySelector('[data-buyer-status]');
+  var submit = root.querySelector('[data-buyer-submit]');
+  var formPanel = root.querySelector('[data-buyer-form-panel]');
+  var heroTitle = root.querySelector('[data-buyer-hero-title]');
+  var heroCopy = root.querySelector('[data-buyer-hero-copy]');
+  var facilityButtons = Array.prototype.slice.call(root.querySelectorAll('[data-facility-chip]'));
+  var dealButtons = Array.prototype.slice.call(root.querySelectorAll('[data-deal-chip]'));
+  var state = { facilityTypes: [], dealSize: "" };
+
+  function setStatus(message, isError) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.add('is-visible');
+    status.classList.toggle('is-error', !!isError);
+  }
+
+  function clearStatus() {
+    if (!status) return;
+    status.textContent = '';
+    status.classList.remove('is-visible', 'is-error');
+  }
+
+  facilityButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var value = button.getAttribute('data-value') || '';
+      if (state.facilityTypes.indexOf(value) >= 0) {
+        state.facilityTypes = state.facilityTypes.filter(function (item) {
+          return item !== value;
+        });
+        button.classList.remove('is-active');
+      } else {
+        state.facilityTypes = state.facilityTypes.concat(value);
+        button.classList.add('is-active');
+      }
+      clearStatus();
+    });
+  });
+
+  dealButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      state.dealSize = button.getAttribute('data-value') || '';
+      dealButtons.forEach(function (item) {
+        item.classList.toggle('is-active', item === button);
+      });
+      clearStatus();
+    });
+  });
+
+  function renderSuccess() {
+    if (heroTitle) heroTitle.textContent = 'Thank You';
+    if (heroCopy) {
+      heroCopy.textContent =
+        "Your buyer profile has been submitted. A member of our team will be in touch shortly.";
+    }
+    if (formPanel) {
+      formPanel.innerHTML =
+        '<div class="sq-success"><div class="sq-success-badge">&#10003;</div><h3>Submission Received</h3><p>We\\'ve received your buyer profile and will review it promptly. A member of our team will reach out to discuss your acquisition criteria and potential opportunities.</p></div>';
+    }
+    root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    clearStatus();
+
+    if (!state.facilityTypes.length) {
+      setStatus('Please choose at least one facility type.', true);
+      return;
+    }
+
+    if (!state.dealSize) {
+      setStatus('Please choose a target deal size.', true);
+      return;
+    }
+
+    var formData = new FormData(form);
+    var payload = {
+      company_name: String(formData.get('companyName') || '').trim(),
+      contact_name: String(formData.get('contactName') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      phone: String(formData.get('phone') || '').trim() || null,
+      facility_types: state.facilityTypes,
+      deal_size: state.dealSize,
+      geographies: String(formData.get('geographies') || '').trim(),
+      additional_notes: String(formData.get('additionalNotes') || '').trim() || null,
+    };
+
+    if (!payload.company_name || !payload.contact_name || !payload.email || !payload.geographies) {
+      setStatus('Please complete all required fields.', true);
+      return;
+    }
+
+    var originalLabel = submit ? submit.innerHTML : '';
+    if (submit) {
+      submit.setAttribute('disabled', 'disabled');
+      submit.innerHTML = 'Submitting...';
+    }
+
+    try {
+      var response = await fetch('https://wlxcqjvqiazvzlovadtx.supabase.co/rest/v1/buyer_submissions', {
+        method: 'POST',
+        headers: {
+          apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndseGNxanZxaWF6dnpsb3ZhZHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDMzNjUsImV4cCI6MjA5MDgxOTM2NX0.2hvzm7-4AbhkgRMK3yrSR8ncVgVLrBQU4zVezbcfbSU',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndseGNxanZxaWF6dnpsb3ZhZHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDMzNjUsImV4cCI6MjA5MDgxOTM2NX0.2hvzm7-4AbhkgRMK3yrSR8ncVgVLrBQU4zVezbcfbSU',
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        var text = await response.text();
+        throw new Error(text || ('Supabase error ' + response.status));
+      }
+
+      renderSuccess();
+    } catch (error) {
+      console.error(error);
+      setStatus('Something went wrong. Please try again.', true);
+      if (submit) {
+        submit.removeAttribute('disabled');
+        submit.innerHTML = originalLabel;
+      }
+    }
+  });
+})();
+</script>

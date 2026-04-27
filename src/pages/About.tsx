@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroAbout from "@/assets/hero-about.jpg";
-import facilityCampus from "@/assets/facility-campus.jpg";
+import aboutBuilding from "@/assets/about-building.jpg";
 import deckerLogo from "@/assets/decker-logo.png";
 
 const About = () => {
@@ -41,7 +41,7 @@ const About = () => {
 
       {/* Facility Image Break with brand */}
       <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilityCampus} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={aboutBuilding} alt="Senior living community campus" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">

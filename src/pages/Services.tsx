@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroServices from "@/assets/hero-services.jpg";
-import facilityCampusClean from "@/assets/facility-campus-clean.jpg";
+import servicesBuilding from "@/assets/services-building.jpg";
 
 const services = [
   {
@@ -116,7 +116,7 @@ const Services = () => {
 
       {/* Facility images section */}
       <section className="relative h-[40vh] overflow-hidden">
-        <img src={facilityCampusClean} alt="Senior living community" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
+        <img src={servicesBuilding} alt="Senior living community" className="w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-2xl md:text-4xl font-black uppercase tracking-wider text-foreground text-center px-6">

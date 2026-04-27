@@ -1,0 +1,626 @@
+<style>
+.decker-code-home {
+  --decker-bg: #060b16;
+  --decker-surface: #0b1220;
+  --decker-surface-2: #111a2b;
+  --decker-text: #f6f8fc;
+  --decker-muted: #94a1b8;
+  --decker-line: rgba(70, 92, 132, 0.36);
+  --decker-blue: #3b82f6;
+  --decker-max: 1400px;
+  color: var(--decker-text);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.decker-code-home * {
+  box-sizing: border-box;
+}
+
+.decker-code-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.decker-code-home__section {
+  width: min(var(--decker-max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.decker-code-home__band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: linear-gradient(180deg, #121a2b 0%, #0b1220 100%);
+  border-top: 1px solid rgba(59, 130, 246, 0.28);
+  border-bottom: 1px solid var(--decker-line);
+}
+
+.decker-code-home__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  width: min(var(--decker-max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.decker-code-home__stat {
+  text-align: center;
+}
+
+.decker-code-home__value {
+  margin: 0 0 8px;
+  color: var(--decker-blue);
+  font-size: clamp(40px, 4vw, 68px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.decker-code-home__label {
+  margin: 0;
+  color: var(--decker-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__sublabel {
+  margin-top: 8px;
+  color: rgba(59, 130, 246, 0.74);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__accent {
+  width: 60px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: var(--decker-blue);
+}
+
+.decker-code-home__eyebrow {
+  margin: 0 0 12px;
+  color: var(--decker-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.decker-code-home h2 {
+  margin: 0 0 32px;
+  color: var(--decker-text);
+  font-size: clamp(32px, 3.2vw, 56px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--decker-line);
+}
+
+.decker-code-home__card {
+  padding: 44px;
+  background: var(--decker-surface);
+  border-right: 1px solid var(--decker-line);
+}
+
+.decker-code-home__card:last-child {
+  border-right: 0;
+}
+
+.decker-code-home__card-kicker {
+  margin: 0 0 14px;
+  color: var(--decker-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__card h3 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__card p {
+  margin: 0;
+  color: var(--decker-muted);
+  line-height: 1.8;
+}
+
+.decker-code-home__card a {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--decker-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__banner,
+.decker-code-home__cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.decker-code-home__banner {
+  min-height: 42vh;
+  margin: 12px 0 0;
+}
+
+.decker-code-home__banner img,
+.decker-code-home__cta img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.decker-code-home__banner::after,
+.decker-code-home__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 11, 22, 0.62);
+}
+
+.decker-code-home__banner-copy,
+.decker-code-home__cta-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.decker-code-home__banner-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42vh;
+  padding: 32px;
+  text-align: center;
+}
+
+.decker-code-home__banner-copy p {
+  margin: 0;
+  color: var(--decker-text);
+  font-size: clamp(24px, 3vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__testimonial {
+  max-width: 980px;
+}
+
+.decker-code-home__quote {
+  margin: 0 0 28px;
+  color: var(--decker-muted);
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.8;
+}
+
+.decker-code-home__name {
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+
+.decker-code-home__meta {
+  margin: 0;
+  color: var(--decker-blue);
+  font-size: 15px;
+}
+
+.decker-code-home__testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.decker-code-home__button-row,
+.decker-code-home__dots,
+.decker-code-home__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.decker-code-home__button,
+.decker-code-home__button:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--decker-text);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.decker-code-home__button--primary,
+.decker-code-home__button--primary:visited {
+  background: var(--decker-blue);
+  border-color: var(--decker-blue);
+  color: #09111f;
+}
+
+.decker-code-home__dot {
+  width: 24px;
+  height: 2px;
+  border: 0;
+  background: rgba(148, 161, 184, 0.45);
+  cursor: pointer;
+}
+
+.decker-code-home__dot.is-active {
+  width: 48px;
+  background: var(--decker-blue);
+}
+
+.decker-code-home__difference {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.decker-code-home__difference-card {
+  padding: 44px;
+  border: 1px solid var(--decker-line);
+  background: var(--decker-surface);
+}
+
+.decker-code-home__difference-card h3 {
+  margin: 0 0 16px;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.decker-code-home__difference-card p {
+  margin: 0;
+  color: var(--decker-muted);
+  line-height: 1.8;
+}
+
+.decker-code-home__cta {
+  min-height: 520px;
+  margin-top: 12px;
+}
+
+.decker-code-home__cta::after {
+  background: rgba(6, 11, 22, 0.8);
+}
+
+.decker-code-home__cta-copy {
+  max-width: 840px;
+  padding: 96px 32px;
+}
+
+.decker-code-home__cta-copy p {
+  margin: 0;
+  color: var(--decker-muted);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.decker-code-home__footer {
+  width: min(var(--decker-max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 64px 0;
+  border-top: 1px solid var(--decker-line);
+}
+
+.decker-code-home__footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.decker-code-home__footer-brand img {
+  max-width: 180px;
+  margin-bottom: 18px;
+}
+
+.decker-code-home__footer-brand p,
+.decker-code-home__footer a {
+  color: var(--decker-muted);
+  line-height: 1.8;
+}
+
+.decker-code-home__footer-title {
+  margin: 0 0 16px;
+  color: var(--decker-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.decker-code-home__footer a {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.decker-code-home__footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--decker-line);
+}
+
+.decker-code-home__footer-bottom p {
+  margin: 0;
+  color: var(--decker-muted);
+}
+
+@media (max-width: 991px) {
+  .decker-code-home__stats,
+  .decker-code-home__cards,
+  .decker-code-home__difference,
+  .decker-code-home__footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decker-code-home__card {
+    border-right: 0;
+    border-bottom: 1px solid var(--decker-line);
+  }
+
+  .decker-code-home__card:last-child {
+    border-bottom: 0;
+  }
+
+  .decker-code-home__testimonial-nav,
+  .decker-code-home__footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<div class="decker-code-home">
+  <section class="decker-code-home__band">
+    <div class="decker-code-home__stats">
+      <div class="decker-code-home__stat">
+        <p class="decker-code-home__value" data-counter data-target="103478346" data-prefix="$">$0</p>
+        <p class="decker-code-home__label">Total Transaction Volume</p>
+      </div>
+      <div class="decker-code-home__stat">
+        <p class="decker-code-home__value" data-counter data-target="11269">0</p>
+        <p class="decker-code-home__label">Buyers in Database</p>
+        <p class="decker-code-home__sublabel">+ 37 added in last 30 days</p>
+      </div>
+      <div class="decker-code-home__stat">
+        <p class="decker-code-home__value" data-counter data-target="87.2" data-suffix="%" data-decimals="1">0.0%</p>
+        <p class="decker-code-home__label">Avg. % of Asking Price</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="decker-code-home__section">
+    <div class="decker-code-home__accent"></div>
+    <p class="decker-code-home__eyebrow">What We Do</p>
+    <h2>Our Services</h2>
+    <div class="decker-code-home__cards">
+      <article class="decker-code-home__card">
+        <p class="decker-code-home__card-kicker">Brokerage</p>
+        <h3>Seniors Housing Brokerage</h3>
+        <p>Seniors housing is more than real estate. When you're selling a senior living community, you're selling a building where people live and receive care every day. That changes everything about how a transaction should be managed. These are living, breathing businesses that serve the most vulnerable population in this country.</p>
+        <a href="/services">Learn More</a>
+      </article>
+      <article class="decker-code-home__card">
+        <p class="decker-code-home__card-kicker">Capital Markets</p>
+        <h3>Capital Markets Advisory</h3>
+        <p>Debt placement, recapitalizations, and acquisition financing for seniors housing owners and operators. We have a deep network of banks, credit funds, private debt lenders, and family office funds that lend in the seniors housing asset class.</p>
+        <a href="/services">Learn More</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="decker-code-home__banner">
+        <img src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/home-banner-building.jpg" alt="Senior living community campus">
+    <div class="decker-code-home__banner-copy">
+      <p>Your Community. Our Commitment.</p>
+    </div>
+  </section>
+
+  <section class="decker-code-home__section decker-code-home__testimonial" data-testimonials>
+    <div class="decker-code-home__accent"></div>
+    <p class="decker-code-home__eyebrow">Testimonials</p>
+    <h2>What Our Clients Say</h2>
+
+    <article data-testimonial-item>
+      <p class="decker-code-home__quote">"After the vacated tenant left the property in a dilapidated condition, securing a new tenant became our immediate focus. Helios and his team not only secured a tenant willing to take on such a challenging assignment but also raised a considerable amount of funding from public funding sources to make the project financially viable."</p>
+      <p class="decker-code-home__name">Barry Chin</p>
+      <p class="decker-code-home__meta">Executive Board Member, Cornerstone Evangelical Baptist Church</p>
+    </article>
+
+    <article data-testimonial-item hidden>
+      <p class="decker-code-home__quote">"What stood out most was his depth of market knowledge and the extensive database of transactions that he and his team tracked. When we finally decided to sell, Helios and his team delivered, achieving our pricing goals and exceeding expectations throughout the process."</p>
+      <p class="decker-code-home__name">Linda Zinnel</p>
+      <p class="decker-code-home__meta">Owner, Cottonwood Estates</p>
+    </article>
+
+    <article data-testimonial-item hidden>
+      <p class="decker-code-home__quote">"Bill and his team have been an invaluable partner in financing our nursing homes and assisted living communities across the country. Their deep market expertise, responsiveness, and ability to deliver rapid financing solutions have made them our first call for every transaction."</p>
+      <p class="decker-code-home__name">Jone Chen</p>
+      <p class="decker-code-home__meta">Executive Chairman, EVA Care Group</p>
+    </article>
+
+    <div class="decker-code-home__testimonial-nav">
+      <div class="decker-code-home__button-row">
+        <button type="button" class="decker-code-home__button" data-prev>Prev</button>
+        <button type="button" class="decker-code-home__button" data-next>Next</button>
+      </div>
+      <div class="decker-code-home__dots">
+        <button type="button" class="decker-code-home__dot is-active" data-dot></button>
+        <button type="button" class="decker-code-home__dot" data-dot></button>
+        <button type="button" class="decker-code-home__dot" data-dot></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="decker-code-home__section">
+    <div class="decker-code-home__accent"></div>
+    <p class="decker-code-home__eyebrow">Why Choose Us</p>
+    <h2>The Decker Difference</h2>
+    <div class="decker-code-home__difference">
+      <article class="decker-code-home__difference-card">
+        <h3>Deep Market Knowledge</h3>
+        <p>We built proprietary systems to track every licensed facility in our coverage states, monitor ownership changes in real time, and underwrite operations at a level that most brokers never reach.</p>
+      </article>
+      <article class="decker-code-home__difference-card">
+        <h3>Integrity First</h3>
+        <p>We invest the time to understand each client's business, community, and objectives before recommending a course of action. Owners deserve honest guidance on valuation, deal structure, and timing.</p>
+      </article>
+      <article class="decker-code-home__difference-card">
+        <h3>Proprietary Buyer Database</h3>
+        <p>Our actively managed database of qualified buyers allows us to confidentially match opportunities with the right acquirers and create targeted outreach that drives competitive tension.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="decker-code-home__cta">
+        <img src="https://cdn.jsdelivr.net/gh/ara925/website-concept04022026@main/src/assets/home-cta-building.jpg" alt="Assisted living facility">
+    <div class="decker-code-home__cta-copy decker-code-home__section">
+      <div class="decker-code-home__accent"></div>
+      <h2>Looking to Buy or Sell a Seniors Housing Community?</h2>
+      <p>Whether you are a private owner exploring a sale, an organization evaluating strategic alternatives for a senior care asset, or a buyer seeking acquisition opportunities, we would welcome the chance to have a conversation.</p>
+      <div class="decker-code-home__actions">
+        <a class="decker-code-home__button decker-code-home__button--primary" href="/contact">Contact Us</a>
+        <a class="decker-code-home__button" href="/buyer-registration">Register as a Buyer</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="decker-code-home__footer">
+    <div class="decker-code-home__footer-grid">
+      <div class="decker-code-home__footer-brand">
+        <img src="https://images.squarespace-cdn.com/content/v1/69c88ba8bbe07315a5d85a47/958b15f2-e7af-4a34-8a24-cd0e8f0a4cc1/decker-logo.png" alt="Decker Healthcare Group">
+        <p>Seniors housing brokerage and capital markets advisory. Assisted living, skilled nursing, memory care, and independent living communities. Nationwide.</p>
+      </div>
+      <div>
+        <p class="decker-code-home__footer-title">Company</p>
+        <a href="/about">About</a><br>
+        <a href="/services">Services</a><br>
+        <a href="/team">Team</a><br>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <p class="decker-code-home__footer-title">Services</p>
+        <a href="/services">Seniors Housing Brokerage</a><br>
+        <a href="/services">Capital Markets</a><br>
+        <a href="/buyer-registration">Buyer Registration</a>
+      </div>
+      <div>
+        <p class="decker-code-home__footer-title">Contact</p>
+        <a href="mailto:info@deckerhealthcare.com">info@deckerhealthcare.com</a><br>
+        <a href="/contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="decker-code-home__footer-bottom">
+      <p>&copy; 2026 Decker Healthcare Group. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#" style="margin-left: 24px;">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function formatCounter(node, value) {
+    var prefix = node.getAttribute("data-prefix") || "";
+    var suffix = node.getAttribute("data-suffix") || "";
+    var decimals = Number(node.getAttribute("data-decimals") || 0);
+    var rounded = Number(value).toLocaleString("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+    return prefix + rounded + suffix;
+  }
+
+  function startCounters() {
+    var counters = document.querySelectorAll(".decker-code-home [data-counter]");
+    counters.forEach(function (node) {
+      if (node.getAttribute("data-started") === "true") return;
+      node.setAttribute("data-started", "true");
+      var target = Number(node.getAttribute("data-target") || "0");
+      var start = performance.now();
+      var duration = 2200;
+
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        node.textContent = formatCounter(node, target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function startTestimonials() {
+    var root = document.querySelector(".decker-code-home [data-testimonials]");
+    if (!root) return;
+    var items = Array.prototype.slice.call(root.querySelectorAll("[data-testimonial-item]"));
+    var dots = Array.prototype.slice.call(root.querySelectorAll("[data-dot]"));
+    var prev = root.querySelector("[data-prev]");
+    var next = root.querySelector("[data-next]");
+    var index = 0;
+
+    function render() {
+      items.forEach(function (item, itemIndex) {
+        item.hidden = itemIndex !== index;
+      });
+      dots.forEach(function (dot, dotIndex) {
+        dot.classList.toggle("is-active", dotIndex === index);
+      });
+    }
+
+    if (prev) prev.addEventListener("click", function () {
+      index = (index - 1 + items.length) % items.length;
+      render();
+    });
+
+    if (next) next.addEventListener("click", function () {
+      index = (index + 1) % items.length;
+      render();
+    });
+
+    dots.forEach(function (dot, dotIndex) {
+      dot.addEventListener("click", function () {
+        index = dotIndex;
+        render();
+      });
+    });
+
+    render();
+  }
+
+  startCounters();
+  startTestimonials();
+})();
+</script>
