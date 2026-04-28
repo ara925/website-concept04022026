@@ -3,13 +3,12 @@ import path from "node:path";
 import { chromium } from "playwright";
 
 const PROFILE_DIR = path.resolve(".squarespace", "profile");
-const ADMIN_URL =
-  "https://kazoo-dalmatian-g9t3.squarespace.com/config/pages/website-tools";
+const ADMIN_URL = "https://kazoo-dalmatian-g9t3.squarespace.com/config/pages";
 const TEAM_COLLECTION_ID = "69d7876c03b8bf69f5679377";
 const TEAM_SECTION_ID = "69d789b2fe5ac426223b1d95";
 const TEAM_BLOCK_ID = "yui_3_17_2_1_1775732590002_737";
 const PAYLOAD_PATH = path.resolve("squarespace", "team-page-code-block.html");
-const MARKER = 'data-decker-team-gallery-page="true"';
+const MARKER = 'data-decker-team-page="true"';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
