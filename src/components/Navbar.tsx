@@ -14,6 +14,7 @@ const navLinks = [
       { label: "Capital Markets Advisory", href: "/services#capital-markets" },
     ],
   },
+  { label: "Market Trends", href: "/market-trends" },
   { label: "Team", href: "/team" },
   { label: "Buyer Registration", href: "/buyer-intake" },
   { label: "Careers", href: "/careers" },

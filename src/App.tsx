@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import MarketTrends from "./pages/MarketTrends";
 import Team from "./pages/Team";
 import TeamMemberPage from "./pages/TeamMemberPage";
 import Careers from "./pages/Careers";
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/team" element={<Team />} />
             <Route path="/:memberSlug" element={<TeamMemberPage />} />
             <Route path="/buyer-intake" element={<BuyerIntake />} />

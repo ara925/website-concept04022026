@@ -1,0 +1,340 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { marketTrendReports, marketTrendsHeroImage } from "./market-trends-data.mjs";
+
+const root = path.resolve(".");
+const outputPath = path.join(root, "squarespace", "market-trends-page.html");
+const featured = marketTrendReports[0];
+const archiveYears = [...new Set(marketTrendReports.map((report) => report.isoDate.slice(0, 4)))];
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function reportVisual(report, featuredVisual = false) {
+  return `
+    <div class="mt-report-visual ${featuredVisual ? "is-featured" : ""}">
+      <div class="mt-report-visual__grid"></div>
+      <div class="mt-report-visual__content">
+        <div class="mt-report-visual__top">
+          <div class="mt-brand">
+            <img src="https://images.squarespace-cdn.com/content/69c88ba8bbe07315a5d85a47/e26f6be0-8a2e-45ae-9b56-f1277ba17d00/decker-logo.png?content-type=image%2Fpng" alt="Decker Healthcare Group">
+          </div>
+          <div class="mt-report-visual__meta">
+            <span>${escapeHtml(report.category)}</span>
+            <strong>${escapeHtml(report.issueLabel)}</strong>
+          </div>
+        </div>
+        <div class="mt-report-visual__middle">
+          <div class="mt-accent-line"></div>
+          <p>Seniors Housing and Long-Term Care</p>
+          <h3>Market<br>Trends</h3>
+          <h4>${escapeHtml(report.issueLabel)}</h4>
+        </div>
+        <div class="mt-report-visual__bottom">
+          ${report.highlights
+            .slice(0, 3)
+            .map(
+              (highlight, index) => `
+                <div class="mt-report-visual__highlight">
+                  <span>${String(index + 1).padStart(2, "0")}</span>
+                  <p>${escapeHtml(highlight)}</p>
+                </div>`,
+            )
+            .join("")}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function actionButtons(report) {
+  return `
+    <div class="mt-actions">
+      <a class="mt-btn mt-btn--primary" href="${report.pdfUrl}" target="_blank" rel="noreferrer">Open PDF</a>
+      <button class="mt-btn mt-btn--secondary" type="button" data-download-url="${report.pdfUrl}" data-download-name="${report.slug}.pdf">Download PDF</button>
+    </div>
+  `;
+}
+
+function reportCard(report) {
+  return `
+    <article class="mt-card">
+      <a href="${report.pdfUrl}" target="_blank" rel="noreferrer" class="mt-card__visual-link">
+        ${reportVisual(report)}
+      </a>
+      <div class="mt-card__body">
+        <div class="mt-chip-row">
+          <span class="mt-chip mt-chip--primary">${escapeHtml(report.category)}</span>
+          <span class="mt-chip">${report.pageCount} ${report.pageCount === 1 ? "Page" : "Pages"}</span>
+        </div>
+        <p class="mt-card__eyebrow">${escapeHtml(report.issueLabel)}</p>
+        <h3 class="mt-card__title">${escapeHtml(report.title)}</h3>
+        <p class="mt-card__summary">${escapeHtml(report.summary)}</p>
+        <div class="mt-highlight-tags">
+          ${report.highlights.map((highlight) => `<span>${escapeHtml(highlight)}</span>`).join("")}
+        </div>
+        ${actionButtons(report)}
+      </div>
+    </article>
+  `;
+}
+
+const html = `<!DOCTYPE html>
+<style>
+.page-section.vertical-alignment--middle:not(.content-collection):not(.gallery-section):not(.user-items-list-section):not(.editmode-changing-rowcount).section-height--small>.content-wrapper{padding-top:0;padding-bottom:0}
+.fe-block-yui_3_17_2_1_1775732590002_737{background:#050b15!important}
+.mt-page{--bg:#050b15;--bg-card:rgba(15,21,37,.62);--bg-panel:#060d19;--fg:#f6f8fc;--fg-muted:#9aa8be;--primary:#3b82f6;--line:rgba(255,255,255,.1);--max:1400px;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased}
+.mt-page *,.mt-page *::before,.mt-page *::after{box-sizing:border-box}
+.mt-page a{text-decoration:none;color:inherit}
+.mt-page img{display:block;max-width:100%}
+.mt-page button{font:inherit}
+.mt-hero{position:relative;display:flex;align-items:flex-end;min-height:90vh;overflow:hidden}
+.mt-hero__media{position:absolute;inset:0}
+.mt-hero__media img{width:100%;height:100%;object-fit:cover}
+.mt-hero__media::before{content:"";position:absolute;inset:0;background:rgba(5,11,21,.72)}
+.mt-hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,11,21,1) 0%,rgba(5,11,21,.1) 48%,rgba(5,11,21,.86) 100%)}
+.mt-hero__fade{position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(to top,var(--bg),transparent)}
+.mt-shell{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 48px}
+.mt-hero__content{padding:0 0 112px;max-width:760px}
+.mt-accent-line{width:60px;height:3px;background:var(--primary);margin-bottom:28px}
+.mt-hero h1{margin:0 0 24px;font-size:clamp(3.4rem,7vw,6rem);font-weight:900;line-height:.95;letter-spacing:-.04em;text-transform:uppercase;color:#fff}
+.mt-hero p{margin:0;max-width:640px;color:var(--fg-muted);font-size:1.12rem;line-height:1.85}
+.mt-section{padding:96px 0}
+.mt-section--border{border-bottom:1px solid rgba(255,255,255,.08)}
+.mt-section--archive{background:rgba(255,255,255,.015)}
+.mt-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mt-stat{padding:28px;border:1px solid var(--line);background:var(--bg-card)}
+.mt-stat p{margin:0}
+.mt-stat p:first-child{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--primary)}
+.mt-stat strong{display:block;margin-top:14px;font-size:3rem;font-weight:900;color:#fff}
+.mt-stat p:last-child{margin-top:14px;color:var(--fg-muted);font-size:.95rem;line-height:1.85}
+.mt-heading{margin-bottom:48px}
+.mt-heading p{margin:0 0 16px;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.mt-heading h2{margin:0;color:#fff;font-size:clamp(2.4rem,4vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-.04em;text-transform:uppercase}
+.mt-heading .mt-heading-copy{margin-top:22px;max-width:760px;color:var(--fg-muted);font-size:1rem;line-height:1.85}
+.mt-featured{display:grid;grid-template-columns:minmax(360px,.78fr) minmax(0,1fr);overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.mt-featured__body{display:flex;flex-direction:column;justify-content:space-between;padding:40px}
+.mt-chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.mt-chip{display:inline-flex;padding:7px 10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-muted)}
+.mt-chip--primary{border-color:rgba(59,130,246,.3);background:rgba(59,130,246,.1);color:var(--primary)}
+.mt-featured__body h3{margin:18px 0 0;color:#fff;font-size:clamp(3rem,5vw,4.8rem);font-weight:900;line-height:.95;letter-spacing:-.04em;text-transform:uppercase}
+.mt-featured__eyebrow{margin:24px 0 0;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+.mt-featured__summary{margin:24px 0 0;max-width:720px;color:var(--fg-muted);font-size:1rem;line-height:1.95}
+.mt-featured__themes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.mt-theme{padding:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
+.mt-theme p{margin:0}
+.mt-theme p:first-child{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--primary)}
+.mt-theme p:last-child{margin-top:10px;color:#fff;font-size:.95rem;line-height:1.55}
+.mt-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.mt-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border:1px solid rgba(255,255,255,.12);cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:transform .25s ease,border-color .25s ease,color .25s ease,background-color .25s ease}
+.mt-btn:hover{transform:translateY(-1px)}
+.mt-btn--primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.mt-btn--secondary{background:rgba(255,255,255,.03);color:#fff}
+.mt-btn--secondary:hover{border-color:rgba(59,130,246,.4);color:var(--primary)}
+.mt-year-group + .mt-year-group{margin-top:80px}
+.mt-year-header{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.mt-year-header h3{margin:0;color:#fff;font-size:2.2rem;font-weight:900;letter-spacing:-.03em}
+.mt-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.mt-card{overflow:hidden;border:1px solid var(--line);background:var(--bg-card);box-shadow:0 22px 70px rgba(5,11,21,.22);transition:transform .5s ease}
+.mt-card:hover{transform:translateY(-4px)}
+.mt-card__body{padding:24px}
+.mt-card__eyebrow{margin:18px 0 0;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+.mt-card__title{margin:14px 0 0;color:#fff;font-size:2rem;font-weight:900;line-height:1;letter-spacing:.03em;text-transform:uppercase}
+.mt-card__summary{margin:18px 0 0;color:var(--fg-muted);font-size:.95rem;line-height:1.9}
+.mt-highlight-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.mt-highlight-tags span{display:inline-flex;padding:8px 12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-muted)}
+.mt-report-visual{position:relative;overflow:hidden;background:#060d19;background-image:radial-gradient(circle at top left, rgba(59,130,246,.18), transparent 34%), linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01))}
+.mt-report-visual__grid{position:absolute;inset:0;opacity:.08;background-image:linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);background-size:72px 72px}
+.mt-report-visual.is-featured .mt-report-visual__grid{background-size:88px 88px}
+.mt-report-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,13,25,.2),rgba(6,13,25,.78))}
+.mt-report-visual__content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:8.5 / 11;padding:24px 24px 28px}
+.mt-report-visual.is-featured .mt-report-visual__content{padding:32px}
+.mt-report-visual__top{display:flex;justify-content:space-between;gap:16px}
+.mt-brand img{width:170px;max-width:170px;height:auto;filter:brightness(0) invert(1)}
+.mt-report-visual__meta{text-align:right}
+.mt-report-visual__meta span{display:block;color:rgba(255,255,255,.5);font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+.mt-report-visual__meta strong{display:block;margin-top:8px;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+.mt-report-visual__middle{padding-top:38px}
+.mt-report-visual__middle p{margin:0;color:var(--primary);font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+.mt-report-visual__middle h3{margin:22px 0 0;color:#fff;font-size:4.1rem;font-weight:900;line-height:.94;letter-spacing:-.05em;text-transform:uppercase}
+.mt-report-visual.is-featured .mt-report-visual__middle h3{font-size:5.4rem}
+.mt-report-visual__middle h4{margin:16px 0 0;color:rgba(255,255,255,.82);font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.mt-report-visual__bottom{display:grid;gap:12px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1)}
+.mt-report-visual__highlight{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px}
+.mt-report-visual__highlight span{color:var(--primary);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.mt-report-visual__highlight p{margin:0;color:rgba(255,255,255,.74);font-size:.92rem;line-height:1.55}
+.mt-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px}
+.mt-cta p{margin:0}
+.mt-cta p:first-child{color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.mt-cta h2{margin:16px 0 0;color:#fff;font-size:2.9rem;font-weight:900;line-height:1;letter-spacing:-.04em;text-transform:uppercase}
+.mt-cta p:last-child{margin-top:16px;max-width:760px;color:var(--fg-muted);font-size:1rem;line-height:1.9}
+@media (max-width:1200px){.mt-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1024px){.mt-shell{padding:0 24px}.mt-stat-grid,.mt-card-grid,.mt-featured,.mt-featured__themes,.mt-cta{grid-template-columns:1fr}.mt-featured__body{padding:28px}.mt-report-visual.is-featured .mt-report-visual__middle h3{font-size:4.4rem}}
+@media (max-width:768px){.mt-hero{min-height:78vh}.mt-hero__content{padding-bottom:72px}.mt-section{padding:64px 0}.mt-shell{padding:0 20px}.mt-report-visual__content{padding:20px}.mt-brand img{width:140px;max-width:140px}.mt-report-visual__middle h3,.mt-report-visual.is-featured .mt-report-visual__middle h3{font-size:3.1rem}.mt-cta h2,.mt-heading h2{font-size:2.4rem}.mt-featured__body h3{font-size:2.8rem}}
+</style>
+
+<div class="mt-page" data-decker-market-trends-page="true">
+  <section class="mt-hero">
+    <div class="mt-hero__media">
+      <img src="${marketTrendsHeroImage}" alt="">
+    </div>
+    <div class="mt-hero__fade"></div>
+    <div class="mt-shell">
+      <div class="mt-hero__content">
+        <div class="mt-accent-line"></div>
+        <h1>Market Trends</h1>
+        <p>
+          A running archive of Decker Healthcare Group market briefs covering seniors housing and long-term care.
+          Every issue is presented in the same format and available as a downloadable PDF.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-section mt-section--border">
+    <div class="mt-shell">
+      <div class="mt-stat-grid">
+        <div class="mt-stat">
+          <p>Archive Size</p>
+          <strong>${marketTrendReports.length}</strong>
+          <p>Issues currently published across updates and full quarterly reports.</p>
+        </div>
+        <div class="mt-stat">
+          <p>Coverage Window</p>
+          <strong>2023-2026</strong>
+          <p>Continuous market commentary spanning early archive issues through the current Decker Healthcare Group brief format.</p>
+        </div>
+        <div class="mt-stat">
+          <p>Format</p>
+          <strong>PDF</strong>
+          <p>Each brief can be opened immediately in-browser and downloaded directly for offline review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-section">
+    <div class="mt-shell">
+      <div class="mt-heading">
+        <div class="mt-accent-line"></div>
+        <p>Featured Brief</p>
+        <h2>Latest Issue</h2>
+      </div>
+
+      <article class="mt-featured">
+        ${reportVisual(featured, true)}
+        <div class="mt-featured__body">
+          <div>
+            <div class="mt-chip-row">
+              <span class="mt-chip mt-chip--primary">${escapeHtml(featured.category)}</span>
+              <span class="mt-chip">${featured.pageCount} Pages</span>
+            </div>
+            <p class="mt-featured__eyebrow">${escapeHtml(featured.issueLabel)}</p>
+            <h3>${escapeHtml(featured.title)}</h3>
+            <p class="mt-featured__summary">${escapeHtml(featured.summary)}</p>
+            <div class="mt-featured__themes">
+              ${featured.highlights
+                .map(
+                  (highlight) => `
+                    <div class="mt-theme">
+                      <p>Key Theme</p>
+                      <p>${escapeHtml(highlight)}</p>
+                    </div>`,
+                )
+                .join("")}
+            </div>
+          </div>
+          ${actionButtons(featured)}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-section mt-section--archive">
+    <div class="mt-shell">
+      <div class="mt-heading">
+        <div class="mt-accent-line"></div>
+        <p>Archive</p>
+        <h2>All Published Briefs</h2>
+        <p class="mt-heading-copy">Every issue follows the same presentation and access pattern, regardless of when it was originally published.</p>
+      </div>
+
+      ${archiveYears
+        .map((year) => {
+          const reports = marketTrendReports.filter((report) => report.isoDate.startsWith(year));
+          return `
+            <div class="mt-year-group">
+              <div class="mt-year-header">
+                <div class="mt-accent-line" style="margin-bottom:0"></div>
+                <h3>${year}</h3>
+              </div>
+              <div class="mt-card-grid">
+                ${reports.map((report) => reportCard(report)).join("")}
+              </div>
+            </div>
+          `;
+        })
+        .join("")}
+    </div>
+  </section>
+
+  <section class="mt-section" style="border-top:1px solid rgba(255,255,255,.08)">
+    <div class="mt-shell">
+      <div class="mt-cta">
+        <div>
+          <p>Research Archive</p>
+          <h2>Need a specific issue quickly?</h2>
+          <p>Every published brief on this page can be opened instantly or downloaded as a PDF for offline review and internal distribution.</p>
+        </div>
+        <button class="mt-btn mt-btn--primary" type="button" data-download-url="${featured.pdfUrl}" data-download-name="${featured.slug}.pdf">Download Latest Brief</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  async function downloadPdf(url, filename, trigger) {
+    const original = trigger ? trigger.textContent : "";
+    if (trigger) {
+      trigger.disabled = true;
+      trigger.textContent = "Downloading...";
+    }
+    try {
+      const response = await fetch(url, { mode: "cors" });
+      if (!response.ok) throw new Error("Download failed");
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } finally {
+      if (trigger) {
+        trigger.disabled = false;
+        trigger.textContent = original;
+      }
+    }
+  }
+
+  document.querySelectorAll("[data-download-url]").forEach((button) => {
+    button.addEventListener("click", () => {
+      downloadPdf(button.getAttribute("data-download-url"), button.getAttribute("data-download-name"), button);
+    });
+  });
+})();
+</script>`;
+
+await fs.writeFile(outputPath, html, "utf8");
+console.log(`Wrote market trends payload to ${path.relative(root, outputPath)}`);
