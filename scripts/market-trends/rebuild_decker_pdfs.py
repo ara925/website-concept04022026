@@ -39,7 +39,7 @@ class ReportDef:
 REPORTS = [
     ReportDef(
         "Market Trends August 2023.pdf",
-        "market-trends-august-2023",
+        "decker-market-trends-august-2023",
         "August 2023",
         "Market Trends",
         "Market Update",
@@ -48,7 +48,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends October 2023.pdf",
-        "market-trends-october-2023",
+        "decker-market-trends-october-2023",
         "October 2023",
         "Market Trends",
         "Market Update",
@@ -57,7 +57,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Update January 2024.pdf",
-        "market-trends-update-january-2024",
+        "decker-market-trends-update-january-2024",
         "January 2024",
         "Market Trends Update",
         "Market Update",
@@ -66,7 +66,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Update April 2024.pdf",
-        "market-trends-update-april-2024",
+        "decker-market-trends-update-april-2024",
         "April 2024",
         "Market Trends Update",
         "Market Update",
@@ -75,7 +75,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Update July 2024.pdf",
-        "market-trends-update-july-2024",
+        "decker-market-trends-update-july-2024",
         "July 2024",
         "Market Trends Update",
         "Market Update",
@@ -84,7 +84,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Update November 2024.pdf",
-        "market-trends-update-november-2024",
+        "decker-market-trends-update-november-2024",
         "November 2024",
         "Market Trends Update",
         "Market Update",
@@ -93,7 +93,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Report February 2025.pdf",
-        "market-trends-report-february-2025",
+        "decker-market-trends-report-february-2025",
         "February 2025",
         "Market Trends Report",
         "Quarterly Report",
@@ -102,7 +102,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Report May 2025.pdf",
-        "market-trends-report-may-2025",
+        "decker-market-trends-report-may-2025",
         "May 2025",
         "Market Trends Report",
         "Quarterly Report",
@@ -111,7 +111,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Report August 2025.pdf",
-        "market-trends-report-august-2025",
+        "decker-market-trends-report-august-2025",
         "August 2025",
         "Market Trends Report",
         "Quarterly Report",
@@ -120,7 +120,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Report February 2026.pdf",
-        "market-trends-report-february-2026",
+        "decker-market-trends-report-february-2026",
         "February 2026",
         "Market Trends Report",
         "Quarterly Report",
@@ -129,7 +129,7 @@ REPORTS = [
     ),
     ReportDef(
         "Market Trends Report April 2026.pdf",
-        "market-trends-report-april-2026",
+        "decker-market-trends-report-april-2026",
         "April 2026",
         "Market Trends Report",
         "Quarterly Report",
