@@ -71,7 +71,7 @@ export const marketTrendReports = [
     issueLabel: "November 2024",
     category: "Market Update",
     isoDate: "2024-11-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "A fast-turn market update on fee-simple independent living strategies, hospice acquisitions by assisted living providers, and the capital responses being used to support lease-up and working capital.",
     highlights: ["Fee-simple IL models", "Hospice acquisitions", "Lease-up liquidity"],
@@ -83,7 +83,7 @@ export const marketTrendReports = [
     issueLabel: "July 2024",
     category: "Market Update",
     isoDate: "2024-07-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "Reviews lender caution around healthcare foreclosures, the labor incentives communities are using to stabilize staffing, and how banks are extending runway instead of forcing distressed outcomes.",
     highlights: ["Foreclosure risk", "Attendance bonuses", "Lender cooperation"],
@@ -95,7 +95,7 @@ export const marketTrendReports = [
     issueLabel: "April 2024",
     category: "Market Update",
     isoDate: "2024-04-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "Examines ancillary healthcare buyers entering the space, pressure created by underoccupied new development, and the tactical shifts emerging in smaller-asset transactions.",
     highlights: ["Ancillary buyers", "Lease-up pressure", "Sub-$5M activity"],
@@ -107,7 +107,7 @@ export const marketTrendReports = [
     issueLabel: "January 2024",
     category: "Market Update",
     isoDate: "2024-01-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "A market read on extreme construction costs, longer development hold periods, evolving nursing-home economics, and the management churn showing up across operator portfolios.",
     highlights: ["Construction inflation", "Longer hold periods", "Management turnover"],
@@ -119,7 +119,7 @@ export const marketTrendReports = [
     issueLabel: "October 2023",
     category: "Market Update",
     isoDate: "2023-10-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "Captures buyer preference for stronger markets despite negative cash flow, the survey-agency staffing gap affecting skilled nursing, and shifting post-acute reimbursement mix.",
     highlights: ["Stronger-market bias", "Surveyor shortage", "Managed-care mix"],
@@ -131,7 +131,7 @@ export const marketTrendReports = [
     issueLabel: "August 2023",
     category: "Market Update",
     isoDate: "2023-08-01",
-    pageCount: 1,
+    pageCount: 2,
     summary:
       "Documents how seller carryback became a dominant structuring tool, especially where debt markets were constrained and owners prioritized operational exit over immediate pricing purity.",
     highlights: ["Seller carryback", "Debt market pressure", "Distressed exits"],
